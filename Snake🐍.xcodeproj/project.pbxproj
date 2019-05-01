@@ -57,8 +57,8 @@
 		6A1D2D33227A2D0B00E07C42 /* Snake🐍 */ = {
 			isa = PBXGroup;
 			children = (
-				6A1D2D34227A2D0B00E07C42 /* AppDelegate.swift */,
 				6A1D2D36227A2D0B00E07C42 /* ViewController.swift */,
+				6A1D2D34227A2D0B00E07C42 /* AppDelegate.swift */,
 				6A1D2D38227A2D0B00E07C42 /* Main.storyboard */,
 				6A1D2D3B227A2D0E00E07C42 /* Assets.xcassets */,
 				6A1D2D3D227A2D0E00E07C42 /* LaunchScreen.storyboard */,
