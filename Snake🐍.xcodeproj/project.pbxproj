@@ -40,7 +40,6 @@
 		6A1D2D28227A2D0B00E07C42 = {
 			isa = PBXGroup;
 			children = (
-				06C2D9EA227A2F3B00EF868F /* GameViewController.swift */,
 				6A1D2D33227A2D0B00E07C42 /* Snake🐍 */,
 				6A1D2D32227A2D0B00E07C42 /* Products */,
 			);
@@ -58,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				6A1D2D36227A2D0B00E07C42 /* ViewController.swift */,
+				06C2D9EA227A2F3B00EF868F /* GameViewController.swift */,
 				6A1D2D34227A2D0B00E07C42 /* AppDelegate.swift */,
 				6A1D2D38227A2D0B00E07C42 /* Main.storyboard */,
 				6A1D2D3B227A2D0E00E07C42 /* Assets.xcassets */,
