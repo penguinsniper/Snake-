@@ -13,6 +13,7 @@
 		6A1D2D3A227A2D0B00E07C42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1D2D38227A2D0B00E07C42 /* Main.storyboard */; };
 		6A1D2D3C227A2D0E00E07C42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A1D2D3B227A2D0E00E07C42 /* Assets.xcassets */; };
 		6A1D2D3F227A2D0E00E07C42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1D2D3D227A2D0E00E07C42 /* LaunchScreen.storyboard */; };
+		C471DDC2227B7C410010218C /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = C471DDC1227B7C410010218C /* Views.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		6A1D2D3B227A2D0E00E07C42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A1D2D3E227A2D0E00E07C42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A1D2D40227A2D0E00E07C42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C471DDC1227B7C410010218C /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		6A1D2D33227A2D0B00E07C42 /* Snake🐍 */ = {
 			isa = PBXGroup;
 			children = (
+				C471DDC1227B7C410010218C /* Views.swift */,
 				6A1D2D36227A2D0B00E07C42 /* ViewController.swift */,
 				06C2D9EA227A2F3B00EF868F /* GameViewController.swift */,
 				6A1D2D34227A2D0B00E07C42 /* AppDelegate.swift */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C471DDC2227B7C410010218C /* Views.swift in Sources */,
 				6A1D2D37227A2D0B00E07C42 /* ViewController.swift in Sources */,
 				06C2D9EB227A2F3B00EF868F /* GameViewController.swift in Sources */,
 				6A1D2D35227A2D0B00E07C42 /* AppDelegate.swift in Sources */,
