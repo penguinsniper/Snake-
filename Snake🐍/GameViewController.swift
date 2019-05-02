@@ -9,11 +9,31 @@
 import UIKit
 
 class GameViewController: UIViewController {
-
+    
+    var gridViews:[UIView] = []
+    var gridSize = 21
+    var rightSideViews:[Int] = []
+    var leftSideViews:[Int] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        create()
         // Do any additional setup after loading the view.
     }
-
+    func create() {
+        let ViewsC = Views(gridAmount: gridSize)
+        gridViews = ViewsC.viewB
+        for REP in 1...gridViews.count {
+            gridViews[REP-1].backgroundColor = UIColor.black
+            view.addSubview(gridViews[REP-1])
+        }
+        rightSideViews = []
+        leftSideViews = []
+        for REAPE in 0...gridSize - 1{
+            rightSideViews += [gridSize * REAPE]
+        }
+        for REAPET in 1...gridSize {
+            leftSideViews += [(gridSize * REAPET) - 1]
+        }
+    }
 }

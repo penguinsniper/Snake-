@@ -17,11 +17,11 @@ class Views {
     var viewB:[UIView] = [UIView(frame: CGRect(x: 1, y: 1, width: 1, height: 1))]
     var RP:Int = 0
     var RPT:Int = 0
-    init(r: Int) {
+    init(gridAmount: Int) {
         viewB = []
-        for RP in 1...r {
-            for RPT in 1...r {
-                CGR = CGRect(x: x + 10, y: y + 40, width: size, height: size)
+        for RP in 1...gridAmount {
+            for RPT in 1...gridAmount {
+                CGR = CGRect(x: x + 17, y: y + 130, width: size, height: size)
                 viewB += [UIView(frame: CGR)]
                 x += size
             }
