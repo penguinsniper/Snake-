@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreData
+
+var highScore:Int = 0
 
 class ViewController: UIViewController {
 
@@ -14,8 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    var highScore:Int = 0
-    
+  
     
 
 }
