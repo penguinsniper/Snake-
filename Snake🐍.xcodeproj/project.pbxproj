@@ -14,6 +14,7 @@
 		6A1D2D3C227A2D0E00E07C42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A1D2D3B227A2D0E00E07C42 /* Assets.xcassets */; };
 		6A1D2D3F227A2D0E00E07C42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1D2D3D227A2D0E00E07C42 /* LaunchScreen.storyboard */; };
 		6ACA7DA1227B838900DB2F56 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6ACA7D9F227B838900DB2F56 /* Model.xcdatamodeld */; };
+		6ACA7DA4227B852700DB2F56 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACA7DA3227B852700DB2F56 /* CoreData.framework */; };
 		C471DDC2227B7C410010218C /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = C471DDC1227B7C410010218C /* Views.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		6A1D2D3E227A2D0E00E07C42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A1D2D40227A2D0E00E07C42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ACA7DA0227B838900DB2F56 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		6ACA7DA3227B852700DB2F56 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C471DDC1227B7C410010218C /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ACA7DA4227B852700DB2F56 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +49,7 @@
 			children = (
 				6A1D2D33227A2D0B00E07C42 /* Snake🐍 */,
 				6A1D2D32227A2D0B00E07C42 /* Products */,
+				6ACA7DA2227B852700DB2F56 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +75,14 @@
 				6A1D2D40227A2D0E00E07C42 /* Info.plist */,
 			);
 			path = "Snake🐍";
+			sourceTree = "<group>";
+		};
+		6ACA7DA2227B852700DB2F56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6ACA7DA3227B852700DB2F56 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
