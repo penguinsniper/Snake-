@@ -14,7 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-let highScoreDefault = UserDefaults.standard
+    var highScore:Int = 0
+    
     
 
 }
