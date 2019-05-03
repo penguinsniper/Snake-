@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-var highScore:Int = 0
-var tick = 1
-var time = Timer()
+
 
 class ViewController: UIViewController {
+    var highScore:Int = 0
+    var tick = 1
+    var time = Timer()
+    
     func startTimer(){
         time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
     }
