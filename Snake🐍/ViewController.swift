@@ -10,8 +10,13 @@ import UIKit
 import CoreData
 
 var highScore:Int = 0
+var tick = 1
+var time = Timer()
 
 class ViewController: UIViewController {
+    func runTimer(){
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
