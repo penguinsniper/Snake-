@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
     var gridSize = 21
     var rightSideViews:[Int] = []
     var leftSideViews:[Int] = []
-   
+    var fullSkakeInView = false
     @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
     @IBOutlet var downSwipe: UISwipeGestureRecognizer!
@@ -24,6 +24,16 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         create()
         // Do any additional setup after loading the view.
+    }
+    func startGame (){
+        fullSkakeInView = false
+    }
+    func moveSnake() {
+        if fullSkakeInView == true {
+            
+        } else {
+            
+        }
     }
     func create() {
         let viewsControllerLink = Views(gridAmount: gridSize)
