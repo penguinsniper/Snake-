@@ -14,8 +14,11 @@ var tick = 1
 var time = Timer()
 
 class ViewController: UIViewController {
-    func runTimer(){
-        
+    func startTimer(){
+        time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
+    }
+    @objc func updateTimer(){
+        tick += 1
     }
 
     override func viewDidLoad() {
