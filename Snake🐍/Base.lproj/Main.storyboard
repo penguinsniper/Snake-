@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad10_5" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,19 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Snake_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgD-6c-zCr">
-                                <rect key="frame" x="292" y="773" width="250" height="249"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Button" image="playImage"/>
-                                <connections>
-                                    <segue destination="vLe-me-n48" kind="show" id="Fem-5m-a5v"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04R-Mn-kNK">
-                                <rect key="frame" x="225" y="268" width="385" height="78"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="High Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04R-Mn-kNK">
+                                <rect key="frame" x="199" y="268" width="371.5" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="78" id="8Y3-Px-q20"/>
                                 </constraints>
@@ -35,19 +27,27 @@
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuH-pc-NjD">
-                                <rect key="frame" x="241" y="109" width="353" height="151"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Snake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuH-pc-NjD">
+                                <rect key="frame" x="208" y="109" width="353" height="151"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="125"/>
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgD-6c-zCr">
+                                <rect key="frame" x="292" y="757" width="184" height="170"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Button" image="playImage"/>
+                                <connections>
+                                    <segue destination="vLe-me-n48" kind="show" id="Fem-5m-a5v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="04R-Mn-kNK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="248" id="1VU-1G-hq1"/>
                             <constraint firstItem="04R-Mn-kNK" firstAttribute="centerX" secondItem="DuH-pc-NjD" secondAttribute="centerX" id="3Am-yN-qWG"/>
                             <constraint firstItem="rgD-6c-zCr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="292" id="3PR-sj-wfa"/>
-                            <constraint firstItem="DuH-pc-NjD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="241" id="CyW-uO-eNu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rgD-6c-zCr" secondAttribute="bottom" constant="90" id="A39-d2-clE"/>
                             <constraint firstItem="rgD-6c-zCr" firstAttribute="top" secondItem="04R-Mn-kNK" secondAttribute="bottom" constant="427" id="DBQ-R9-2CQ"/>
                             <constraint firstItem="DuH-pc-NjD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="89" id="F7q-S9-OHp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rgD-6c-zCr" secondAttribute="trailing" constant="292" id="LI3-g7-MX2"/>
@@ -57,7 +57,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rgD-6c-zCr" secondAttribute="bottom" constant="90" id="cdx-NY-137"/>
                             <constraint firstItem="rgD-6c-zCr" firstAttribute="top" secondItem="04R-Mn-kNK" secondAttribute="bottom" constant="427" id="eR3-cP-eIl"/>
                             <constraint firstItem="rgD-6c-zCr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="292" id="fK8-pQ-ArJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DuH-pc-NjD" secondAttribute="trailing" constant="240" id="fYf-ct-Ydj"/>
                             <constraint firstItem="04R-Mn-kNK" firstAttribute="top" secondItem="DuH-pc-NjD" secondAttribute="bottom" constant="8" id="fkh-OT-2CM"/>
                             <constraint firstItem="04R-Mn-kNK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="225" id="x7c-4K-AxU"/>
                         </constraints>
@@ -66,18 +65,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="211.51079136690649" y="35.611510791366911"/>
+            <point key="canvasLocation" x="210.9375" y="35.15625"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tV1-Cj-8RB">
             <objects>
                 <viewController id="vLe-me-n48" customClass="GameViewController" customModule="Snake_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="flw-c1-Kga">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er7-mh-eQk">
-                                <rect key="frame" x="487" y="42" width="310" height="66"/>
+                                <rect key="frame" x="438" y="42" width="310" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="55"/>
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -91,7 +90,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uow-9q-fon">
-                                <rect key="frame" x="140" y="991" width="554" height="101"/>
+                                <rect key="frame" x="107" y="903" width="554" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="74"/>
