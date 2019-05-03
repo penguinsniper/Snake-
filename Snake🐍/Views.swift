@@ -21,7 +21,7 @@ class Views {
         viewB = []
         for RP in 1...gridAmount {
             for RPT in 1...gridAmount {
-                CGR = CGRect(x: x + 17, y: y + 130, width: size, height: size)
+                CGR = CGRect(x: x + 16, y: y + 144, width: size, height: size)
                 viewB += [UIView(frame: CGR)]
                 x += size
             }
@@ -30,7 +30,6 @@ class Views {
         }
         
     }
-    //hi
     
 }
 

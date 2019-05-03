@@ -21,8 +21,8 @@ class GameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func create() {
-        let ViewsC = Views(gridAmount: gridSize)
-        gridViews = ViewsC.viewB
+        let viewsControllerLink = Views(gridAmount: gridSize)
+        gridViews = viewsControllerLink.viewB
         for REP in 1...gridViews.count {
             gridViews[REP-1].backgroundColor = UIColor.black
             view.addSubview(gridViews[REP-1])
