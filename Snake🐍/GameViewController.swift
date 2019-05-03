@@ -14,6 +14,11 @@ class GameViewController: UIViewController {
     var gridSize = 21
     var rightSideViews:[Int] = []
     var leftSideViews:[Int] = []
+   
+    @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
+    @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
+    @IBOutlet var downSwipe: UISwipeGestureRecognizer!
+    @IBOutlet var upSwipe: UISwipeGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
