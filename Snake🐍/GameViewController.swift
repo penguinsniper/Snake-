@@ -14,7 +14,10 @@ class GameViewController: UIViewController {
     var gridSize = 21
     var rightSideViews:[Int] = []
     var leftSideViews:[Int] = []
-    var fullSkakeInView = false
+    var fullSnakeInView = false
+    var snakeHead = 0
+    var snakeArray:[Int] = []
+    
     @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
     @IBOutlet var downSwipe: UISwipeGestureRecognizer!
@@ -33,18 +36,13 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startGame()
+    }
+    func startGame(){
+        fullSnakeInView = false
         create()
         spawnApple()
-    }
-    func startGame (){
-        fullSkakeInView = false
-    }
-    func moveSnake() {
-        if fullSkakeInView == true {
-            
-        } else {
-            
-        }
+        createSnake()
     }
     func create() {
         let viewsControllerLink = Views(gridAmount: gridSize)
@@ -67,5 +65,20 @@ class GameViewController: UIViewController {
         if gridViews[appleView].backgroundColor == UIColor.black {
             gridViews[appleView].backgroundColor = UIColor.red
         }
+    }
+    func moveSnake() {
+        if fullSnakeInView != true {
+         addToSnake()
+        }
+    }
+    func addToSnake() {
+        
+    }
+    func createSnake() {
+        var startPoint = 221
+        gridViews[startPoint].backgroundColor = UIColor.green
+        snakeHead = startPoint
+        snakeArray = [startPoint]
+        
     }
 }
