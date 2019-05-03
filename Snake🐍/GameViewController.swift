@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         create()
-        // Do any additional setup after loading the view.
+        spawnApple()
     }
     func create() {
         let viewsControllerLink = Views(gridAmount: gridSize)
@@ -42,6 +42,9 @@ class GameViewController: UIViewController {
         }
     }
     func spawnApple() {
-        
+        var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)))
+        if gridViews[appleView].backgroundColor == UIColor.black {
+            gridViews[appleView].backgroundColor = UIColor.red
+        }
     }
 }
