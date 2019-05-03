@@ -36,4 +36,7 @@ class GameViewController: UIViewController {
             leftSideViews += [(gridSize * REAPET) - 1]
         }
     }
+    func spawnApple() {
+        
+    }
 }
