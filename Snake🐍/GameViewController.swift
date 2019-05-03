@@ -1,7 +1,7 @@
 //
 //  GameViewController.swift
 //  Snake🐍
-//
+//ffff
 //  Created by Olivia Mellen on 5/1/19.
 //  Copyright © 2019 John Hersey High School. All rights reserved.
 //
@@ -27,7 +27,7 @@ class GameViewController: UIViewController {
     var time = Timer()
     
     func startTimer(){
-        time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.tick)), userInfo: nil, repeats: true)
+        time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
         tickCount += 1
