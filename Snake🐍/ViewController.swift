@@ -13,14 +13,14 @@ import CoreData
 
 class ViewController: UIViewController {
     var highScore:Int = 0
-    var tick = 1
+    var tickCount = 1
     var time = Timer()
     
     func startTimer(){
-        time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
+        time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.tick)), userInfo: nil, repeats: true)
     }
-    @objc func updateTimer(){
-        tick += 1
+    @objc func tick(){
+        tickCount += 1
     }
 
     override func viewDidLoad() {
