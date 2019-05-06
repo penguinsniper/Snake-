@@ -26,7 +26,7 @@ class GameViewController: UIViewController {
     var tickCount = 1
     var time = Timer()
     
-    func startTimer(){
+    func startTicks(){
         time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
