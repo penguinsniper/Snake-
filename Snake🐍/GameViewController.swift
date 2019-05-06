@@ -67,18 +67,15 @@ class GameViewController: UIViewController {
         }
     }
     func moveSnake() {
-        if fullSnakeInView != true {
-         addToSnake()
-        }
+        
     }
-    func addToSnake() {
+    func deleteSnake() {
         
     }
     func createSnake() {
-        var startPoint = 221
+        var startPoint = Int((gridSize * gridSize) / 2)
         gridViews[startPoint].backgroundColor = UIColor.green
         snakeHead = startPoint
         snakeArray = [startPoint]
-        
     }
 }
