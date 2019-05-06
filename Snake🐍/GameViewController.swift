@@ -26,7 +26,7 @@ class GameViewController: UIViewController {
     var tickCount = 1
     var time = Timer()
     
-    func startTimer(){
+    func startTicks(){
         time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
@@ -77,5 +77,18 @@ class GameViewController: UIViewController {
         gridViews[startPoint].backgroundColor = UIColor.green
         snakeHead = startPoint
         snakeArray = [startPoint]
+    }
+    
+    func moveRight() {
+        let movement = 1
+    }
+    func moveLeft() {
+        let movement = 1
+    }
+    func moveUp() {
+        let movement = 1
+    }
+    func moveDown() {
+        let movement = 1
     }
 }
