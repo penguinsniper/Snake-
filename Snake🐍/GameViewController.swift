@@ -81,4 +81,17 @@ class GameViewController: UIViewController {
         snakeArray = [startPoint]
         
     }
+    
+    func moveRight() {
+        let movement = 1
+    }
+    func moveLeft() {
+        let movement = 1
+    }
+    func moveUp() {
+        let movement = 1
+    }
+    func moveDown() {
+        let movement = 1
+    }
 }
