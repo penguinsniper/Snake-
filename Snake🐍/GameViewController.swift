@@ -24,6 +24,9 @@ class GameViewController: UIViewController {
     @IBOutlet var downSwipe: UISwipeGestureRecognizer!
     @IBOutlet var upSwipe: UISwipeGestureRecognizer!
     
+    @IBOutlet weak var scoreLabel: UILabel!
+    var score = 0
+    
     var tickCount = 1
     var time = Timer()
     
@@ -38,6 +41,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startGame()
+        score = 0
     }
     func startGame(){
         fullSnakeInView = false
@@ -65,6 +69,10 @@ class GameViewController: UIViewController {
         var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)))
         if gridViews[appleView].backgroundColor == UIColor.black {
             gridViews[appleView].backgroundColor = UIColor.red
+        }
+        if appleView == snakeHead {
+            score += 1
+            scoreLabel.text = "Score: \(score)"
         }
     }
     func moveSnake() {
