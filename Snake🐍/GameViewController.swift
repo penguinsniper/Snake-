@@ -15,6 +15,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var snakeArray:[Int] = []
     var movement = 4
     var touchApple = false
+    var alive = true
     
     @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
@@ -31,11 +32,13 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
+        if alive == true {
         moveSnake()
         if touchApple == false && snakeArray.count > 3 {
             deleteSnake()
         } else {
             touchApple = false
+        }
         }
     }
     
@@ -44,6 +47,21 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         startGame()
         startTicks()
         score = 0
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+        upSwipe.direction = .up
+        downSwipe.direction = .down
+        
+        view.addGestureRecognizer(rightSwipe)
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(upSwipe)
+        view.addGestureRecognizer(downSwipe)
     }
     func startGame(){
         fullSnakeInView = false
@@ -52,6 +70,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         spawnApple()
         }
         createSnake()
+        alive = true
     }
     func create() {
         let viewsControllerLink = Views(gridAmount: gridSize)
@@ -74,6 +93,10 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     func moveSnake() {
         var snakeGoingToGo = 0
         var validSpace = true
+        if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
+            alive = false
+            validSpace = false
+        }
         switch movement {
         case 1:
             snakeGoingToGo = snakeHead + 1
@@ -105,9 +128,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             snakeHead = snakeGoingToGo
             snakeArray += [snakeGoingToGo]
         } else {
-            print("unvalid")
+            
         }
-        
     }
     func deleteSnake() {
         gridViews[snakeArray[0]].backgroundColor = UIColor.black
@@ -120,21 +142,22 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         snakeArray = [startPoint]
     }
     
-    func moveRight() {
-        print("1")
-        movement = 1
-    }
-    func moveLeft() {
-        print("2")
-        movement = 2
-    }
-    func moveUp() {
-        print("3")
-        movement = 3
-    }
-    func moveDown() {
-        print("4")
-        movement = 4
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+        
+        if (sender.direction == .right) {
+            movement = 1
+        }
+        
+        if (sender.direction == .left) {
+            movement = 2
+        }
+        if (sender.direction == .up) {
+            movement = 3
+        }
+        
+        if (sender.direction == .down) {
+            movement = 4
+        }
     }
 }
 
