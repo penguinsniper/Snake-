@@ -68,6 +68,14 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         create()
         spawnApple()
         createSnake()
+        let startSound = Bundle.main.path(forResource: "Snake Hissing Noise", ofType: "mp3")!
+        let createURL1 = URL(fileURLWithPath: startSound)
+        do {
+            playSound = try AVAudioPlayer(contentsOf: createURL1)
+            playSound?.play()
+        }
+        
+        
     }
     func create() {
         let viewsControllerLink = Views(gridAmount: gridSize)
