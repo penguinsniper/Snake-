@@ -77,6 +77,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         do {
             playSound = try AVAudioPlayer(contentsOf: createURL1)
             playSound?.play()
+            
         }
         
         
