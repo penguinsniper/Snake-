@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, AVAudioPlayerDelegate {
+    var playSound: AVAudioPlayer?
+    
+    
     
     var gridViews:[UIView] = []
     var gridSize = 21
