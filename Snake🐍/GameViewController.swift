@@ -33,7 +33,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var fullSnakeInView = false
     var snakeHead = 0
     var snakeArray:[Int] = []
-    var movement = 1
+    var movement = 4
     var touchApple = false
     
     @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
@@ -52,8 +52,10 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     @objc func tick(){
         moveSnake()
-        if touchApple == false && snakeArray.count <= 3 {
+        if touchApple == false && snakeArray.count > 3 {
             deleteSnake()
+        } else {
+            touchApple = false
         }
     }
     
@@ -66,7 +68,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     func startGame(){
         fullSnakeInView = false
         create()
+        for repeti in 0...25 {
         spawnApple()
+        }
         createSnake()
         let startSound = Bundle.main.path(forResource: "Snake Hissing Noise", ofType: "mp3")!
         let createURL1 = URL(fileURLWithPath: startSound)
@@ -101,15 +105,15 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         switch movement {
         case 1:
             snakeGoingToGo = snakeHead + 1
-            for REAPET in 1...gridSize{
-                if snakeGoingToGo == (gridSize * REAPET) - 1 {
+            for REAPE in 0...gridSize - 1 {
+                if snakeGoingToGo == (gridSize * REAPE) {
                     validSpace = false
                 }
             }
         case 2:
             snakeGoingToGo = snakeHead - 1
-            for REAPE in 0...gridSize - 1 {
-                if snakeGoingToGo == (gridSize * REAPE) {
+            for REAPET in 1...gridSize{
+                if snakeGoingToGo == (gridSize * REAPET) - 1 {
                     validSpace = false
                 }
             }
@@ -120,7 +124,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         default:
             print("fail")
         }
-        print(snakeGoingToGo)
         if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true{
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
                 spawnApple()
@@ -129,12 +132,14 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             gridViews[snakeGoingToGo].backgroundColor = UIColor.green
             snakeHead = snakeGoingToGo
             snakeArray += [snakeGoingToGo]
-            print("\(snakeArray) hhhhh")
+        } else {
+            print("unvalid")
         }
+        
     }
     func deleteSnake() {
-        gridViews[snakeArray[1]].backgroundColor = UIColor.black
-        snakeArray.remove(at: 1)
+        gridViews[snakeArray[0]].backgroundColor = UIColor.black
+        snakeArray.remove(at: 0)
     }
     func createSnake() {
         var startPoint = Int((gridSize * gridSize) / 2)
@@ -144,15 +149,19 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func moveRight() {
+        print("1")
         movement = 1
     }
     func moveLeft() {
+        print("2")
         movement = 2
     }
     func moveUp() {
+        print("3")
         movement = 3
     }
     func moveDown() {
+        print("4")
         movement = 4
     }
 }
