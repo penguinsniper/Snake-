@@ -1,11 +1,3 @@
-//
-//  GameViewController.swift
-//  Snake🐍
-//ffff
-//  Created by Olivia Mellen on 5/1/19.
-//  Copyright © 2019 John Hersey High School. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 
@@ -21,6 +13,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var fullSnakeInView = false
     var snakeHead = 0
     var snakeArray:[Int] = []
+    var movement = 1
+    var touchApple = false
     
     @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
@@ -37,14 +31,20 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
-        tickCount += 1
+        moveSnake()
+        if touchApple == false && snakeArray.count <= 3 {
+            deleteSnake()
+        }
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         startGame()
-        score = 0
+        <<<<<<< HEAD
+        startTicks()
+            =======
+            score = 0
+            >>>>>>> master
     }
     func startGame(){
         fullSnakeInView = false
@@ -59,17 +59,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             gridViews[REP-1].backgroundColor = UIColor.black
             view.addSubview(gridViews[REP-1])
         }
-        rightSideViews = []
-        leftSideViews = []
-        for REAPE in 0...gridSize - 1{
-            rightSideViews += [gridSize * REAPE]
-        }
-        for REAPET in 1...gridSize {
-            leftSideViews += [(gridSize * REAPET) - 1]
-        }
     }
     func spawnApple() {
-        var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)))
+        var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize))) - 1
         if gridViews[appleView].backgroundColor == UIColor.black {
             gridViews[appleView].backgroundColor = UIColor.red
         }
@@ -79,10 +71,45 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     func moveSnake() {
-        
+        var snakeGoingToGo = 0
+        var validSpace = true
+        switch movement {
+        case 1:
+            snakeGoingToGo = snakeHead + 1
+            for REAPET in 1...gridSize{
+                if snakeGoingToGo == (gridSize * REAPET) - 1 {
+                    validSpace = false
+                }
+            }
+        case 2:
+            snakeGoingToGo = snakeHead - 1
+            for REAPE in 0...gridSize - 1 {
+                if snakeGoingToGo == (gridSize * REAPE) {
+                    validSpace = false
+                }
+            }
+        case 3:
+            snakeGoingToGo = snakeHead - gridSize
+        case 4:
+            snakeGoingToGo = snakeHead + gridSize
+        default:
+            print("fail")
+        }
+        print(snakeGoingToGo)
+        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true{
+            if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
+                spawnApple()
+                touchApple = true
+            }
+            gridViews[snakeGoingToGo].backgroundColor = UIColor.green
+            snakeHead = snakeGoingToGo
+            snakeArray += [snakeGoingToGo]
+            print("\(snakeArray) hhhhh")
+        }
     }
     func deleteSnake() {
-        
+        gridViews[snakeArray[1]].backgroundColor = UIColor.black
+        snakeArray.remove(at: 1)
     }
     func createSnake() {
         var startPoint = Int((gridSize * gridSize) / 2)
@@ -92,15 +119,16 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func moveRight() {
-        let movement = 1
+        movement = 1
     }
     func moveLeft() {
-        let movement = 1
+        movement = 2
     }
     func moveUp() {
-        let movement = 1
+        movement = 3
     }
     func moveDown() {
-        let movement = 1
+        movement = 4
     }
 }
+
