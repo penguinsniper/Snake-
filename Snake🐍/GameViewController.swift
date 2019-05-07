@@ -40,11 +40,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         startGame()
-        <<<<<<< HEAD
         startTicks()
-            =======
-            score = 0
-            >>>>>>> master
+        score = 0
     }
     func startGame(){
         fullSnakeInView = false
