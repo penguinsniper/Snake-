@@ -97,8 +97,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             playSound?.play()
             
         }
-        
-        
+        alive = true
     }
     func create() {
         let viewsControllerLink = Views(gridAmount: gridSize)
