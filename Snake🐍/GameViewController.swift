@@ -90,7 +90,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         spawnApple()
         }
         createSnake()
-        let startSound = Bundle.main.path(forResource: "Snake Hissing Noise", ofType: "mp3")!
+        let startSound = Bundle.main.path(forResource: "Snake Hissing Sound Effect", ofType: "mp3")!
         let createURL1 = URL(fileURLWithPath: startSound)
         do {
             playSound = try AVAudioPlayer(contentsOf: createURL1)
@@ -110,7 +110,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     func spawnApple() {
-        var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize))) - 1
+        var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         if gridViews[appleView].backgroundColor == UIColor.black {
             gridViews[appleView].backgroundColor = UIColor.red
         }
@@ -163,6 +163,14 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     func deleteSnake() {
         gridViews[snakeArray[0]].backgroundColor = UIColor.black
         snakeArray.remove(at: 0)
+        let startSound1 = Bundle.main.path(forResource: "Door Kick Down Sound Effect", ofType: "mp3")!
+        let createURL2 = URL(fileURLWithPath: startSound1)
+        do {
+            playSound = try AVAudioPlayer(contentsOf: createURL2)
+            playSound?.play()
+        } catch {
+            // no audio found
+        }
     }
     func createSnake() {
         var startPoint = Int((gridSize * gridSize) / 2)
