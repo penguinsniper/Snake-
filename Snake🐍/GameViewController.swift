@@ -91,6 +91,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         spawnApple()
         createSnake()
         alive = true
+        
     }
     func create() {
         let viewsControllerLink = Views(gridAmount: gridSize)
