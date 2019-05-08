@@ -43,6 +43,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet var upSwipe: UISwipeGestureRecognizer!
     
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet var highScore: UILabel!
+    
     var score = 0
     
     var tickCount = 1
@@ -86,9 +88,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     func startGame(){
         fullSnakeInView = false
         create()
-        for repeti in 0...25 {
         spawnApple()
-        }
         createSnake()
         let startSound = Bundle.main.path(forResource: "Snake Hissing Sound Effect", ofType: nil)!
         let createURL1 = URL(fileURLWithPath: startSound)

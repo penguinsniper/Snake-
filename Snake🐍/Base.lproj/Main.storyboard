@@ -108,6 +108,7 @@
                     </view>
                     <connections>
                         <outlet property="downSwipe" destination="voE-qD-T2A" id="MCF-QM-Ew8"/>
+                        <outlet property="highScore" destination="Er7-mh-eQk" id="4A6-IK-NpD"/>
                         <outlet property="leftSwipe" destination="1s2-JF-pMh" id="hnj-Tm-z07"/>
                         <outlet property="rightSwipe" destination="Put-ZA-2Yg" id="uSD-1P-3Uo"/>
                         <outlet property="scoreLabel" destination="nPn-ZH-Tur" id="Y1E-vS-bE2"/>
