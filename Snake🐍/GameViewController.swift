@@ -188,18 +188,18 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
         
         if (sender.direction == .left) {
-            if gridViews[snakeHead + 1].backgroundColor != UIColor.green {
+            if gridViews[snakeHead - 1].backgroundColor != UIColor.green {
                 movement = 2
             }
         }
         if (sender.direction == .up) {
-            if gridViews[snakeHead + 1].backgroundColor != UIColor.green {
+            if gridViews[snakeHead - gridSize].backgroundColor != UIColor.green {
                 movement = 3
             }
         }
         
         if (sender.direction == .down) {
-            if gridViews[snakeHead + 1].backgroundColor != UIColor.green {
+            if gridViews[snakeHead + gridSize].backgroundColor != UIColor.green {
                 movement = 4
             }
         }
