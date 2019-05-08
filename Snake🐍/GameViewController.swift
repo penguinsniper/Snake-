@@ -108,10 +108,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         if gridViews[appleView].backgroundColor == UIColor.black {
             gridViews[appleView].backgroundColor = UIColor.red
         }
-        if appleView == snakeHead {
-            score += 1
-            scoreLabel.text = "Score: \(score)"
-        }
+        
     }
     
     func moveSnake() {
@@ -146,6 +143,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true{
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
                 score += 1
+                scoreLabel.text = "Score: \(score)"
                 spawnApple()
                 touchApple = true
             }
