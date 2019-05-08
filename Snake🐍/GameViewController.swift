@@ -11,13 +11,6 @@
 
 
 
-
-
-
-
-
-
-
 import UIKit
 import AVFoundation
 
@@ -51,7 +44,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var time = Timer()
     
     func startTicks(){
-        time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
+        time = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
         if alive == true {
@@ -143,6 +136,10 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         default:
             print("fail")
         }
+        if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
+            alive = false
+            validSpace = false
+        }
         if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true{
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
                 score += 1
@@ -153,7 +150,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             snakeHead = snakeGoingToGo
             snakeArray += [snakeGoingToGo]
         } else {
-            
+            alive = false
         }
     }
     func deleteSnake() {
@@ -169,7 +166,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
-        
+        if alive == true {
         if (sender.direction == .right) {
             if gridViews[snakeHead + 1].backgroundColor != UIColor.green {
                 self.movement = 1
@@ -191,6 +188,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             if gridViews[snakeHead + gridSize].backgroundColor != UIColor.green {
                 movement = 4
             }
+        }
         }
     }
 }
