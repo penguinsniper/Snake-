@@ -85,6 +85,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
     }
+    
     func startGame(){
         fullSnakeInView = false
         create()
@@ -93,6 +94,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         alive = true
         
     }
+    
     func create() {
         let viewsControllerLink = Views(gridAmount: gridSize)
         gridViews = viewsControllerLink.viewB
@@ -101,6 +103,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             view.addSubview(gridViews[REP-1])
         }
     }
+    
     func spawnApple() {
         var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         if gridViews[appleView].backgroundColor == UIColor.black {
@@ -111,6 +114,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             scoreLabel.text = "Score: \(score)"
         }
     }
+    
     func moveSnake() {
         var snakeGoingToGo = 0
         var validSpace = true
@@ -142,6 +146,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
         if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true{
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
+                score += 1
                 spawnApple()
                 touchApple = true
             }
