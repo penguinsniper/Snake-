@@ -85,6 +85,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         spawnApple()
         createSnake()
         alive = true
+        
     }
     
     func create() {
