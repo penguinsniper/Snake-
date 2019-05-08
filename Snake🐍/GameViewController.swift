@@ -110,7 +110,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     func spawnApple() {
-        var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize))) - 1
+        var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         if gridViews[appleView].backgroundColor == UIColor.black {
             gridViews[appleView].backgroundColor = UIColor.red
         }
@@ -192,18 +192,26 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         
         if (sender.direction == .right) {
-            movement = 1
+            if gridViews[snakeHead + 1].backgroundColor != UIColor.green {
+                self.movement = 1
+            }
         }
         
         if (sender.direction == .left) {
-            movement = 2
+            if gridViews[snakeHead + 1].backgroundColor != UIColor.green {
+                movement = 2
+            }
         }
         if (sender.direction == .up) {
-            movement = 3
+            if gridViews[snakeHead + 1].backgroundColor != UIColor.green {
+                movement = 3
+            }
         }
         
         if (sender.direction == .down) {
-            movement = 4
+            if gridViews[snakeHead + 1].backgroundColor != UIColor.green {
+                movement = 4
+            }
         }
     }
 }
