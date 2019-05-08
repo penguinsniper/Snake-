@@ -110,7 +110,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     func spawnApple() {
-        var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize))) - 1
+        var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         if gridViews[appleView].backgroundColor == UIColor.black {
             gridViews[appleView].backgroundColor = UIColor.red
         }
