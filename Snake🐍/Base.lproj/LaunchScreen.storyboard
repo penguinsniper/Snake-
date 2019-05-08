@@ -24,23 +24,12 @@
                                     <constraint firstAttribute="width" constant="718" id="rqP-SA-IJe"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="kuz-5h-gwI">
-                                <rect key="frame" x="528" y="469" width="62" height="87"/>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bOR-jk-KEu" secondAttribute="bottom" constant="272" id="2oM-OS-aer"/>
-                            <constraint firstItem="kuz-5h-gwI" firstAttribute="leading" secondItem="bOR-jk-KEu" secondAttribute="trailing" constant="54" id="8pc-Ek-KSu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kuz-5h-gwI" secondAttribute="bottom" constant="468" id="BWa-MQ-BIF"/>
                             <constraint firstItem="bOR-jk-KEu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="278" id="QVg-ED-b0S"/>
                             <constraint firstItem="bOR-jk-KEu" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-244" id="ZsD-1Y-XOd"/>
-                            <constraint firstItem="kuz-5h-gwI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="449" id="jyB-fn-HU1"/>
-                            <constraint firstItem="kuz-5h-gwI" firstAttribute="leading" secondItem="bOR-jk-KEu" secondAttribute="trailing" constant="54" id="nwZ-5u-bu8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kuz-5h-gwI" secondAttribute="trailing" constant="178" id="rqK-gm-TDg"/>
-                            <constraint firstItem="kuz-5h-gwI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="449" id="x5I-A2-LJ0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kuz-5h-gwI" secondAttribute="trailing" constant="178" id="yLS-Tx-yGt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kuz-5h-gwI" secondAttribute="bottom" constant="468" id="zb1-Ln-T2f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -51,7 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="apple" width="512" height="512"/>
         <image name="snake" width="708" height="240"/>
     </resources>
 </document>
