@@ -91,6 +91,7 @@ var playSound = AVAudioPlayer()
         do {
             playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "Snake Hissing Sound Effect", ofType: "mp3")!))
             playSound.prepareToPlay()
+            playSound.play()
             
         } catch {
             print("error, no audio")
