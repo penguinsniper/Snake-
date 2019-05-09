@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Color View Controller-->
         <scene sceneID="cXE-gJ-6TQ">
             <objects>
-                <viewController id="aHi-la-1dk" sceneMemberID="viewController">
+                <viewController id="aHi-la-1dk" customClass="ColorViewController" customModule="Snake_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0dz-83-bgP">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,6 +186,6 @@
         <image name="playImage" width="1500" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mkm-u4-9cW"/>
+        <segue reference="cLb-VT-7VE"/>
     </inferredMetricsTieBreakers>
 </document>
