@@ -18,6 +18,7 @@
 		6A23942B2284B780007C1362 /* Snake Hissing Sound Effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A23942A2284B780007C1362 /* Snake Hissing Sound Effect.mp3 */; };
 		6ACA7DA4227B852700DB2F56 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACA7DA3227B852700DB2F56 /* CoreData.framework */; };
 		C471DDC2227B7C410010218C /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = C471DDC1227B7C410010218C /* Views.swift */; };
+		C4CB22102284B96100E9E491 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CB220F2284B96100E9E491 /* ColorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		6A23942A2284B780007C1362 /* Snake Hissing Sound Effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Snake Hissing Sound Effect.mp3"; path = "../../../../Desktop/audio/Snake Hissing Sound Effect.mp3"; sourceTree = "<group>"; };
 		6ACA7DA3227B852700DB2F56 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C471DDC1227B7C410010218C /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		C4CB220F2284B96100E9E491 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				C471DDC1227B7C410010218C /* Views.swift */,
 				6A1D2D36227A2D0B00E07C42 /* ViewController.swift */,
+				C4CB220F2284B96100E9E491 /* ColorViewController.swift */,
 				06C2D9EA227A2F3B00EF868F /* GameViewController.swift */,
 				6A1D2D34227A2D0B00E07C42 /* AppDelegate.swift */,
 				6A1D2D38227A2D0B00E07C42 /* Main.storyboard */,
@@ -176,6 +179,7 @@
 				C471DDC2227B7C410010218C /* Views.swift in Sources */,
 				6A1D2D37227A2D0B00E07C42 /* ViewController.swift in Sources */,
 				06C2D9EB227A2F3B00EF868F /* GameViewController.swift in Sources */,
+				C4CB22102284B96100E9E491 /* ColorViewController.swift in Sources */,
 				6A1D2D35227A2D0B00E07C42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,16 +35,19 @@ var playSound = AVAudioPlayer()
     @IBOutlet var downSwipe: UISwipeGestureRecognizer!
     @IBOutlet var upSwipe: UISwipeGestureRecognizer!
     
+    @IBOutlet var restartButton: UIButton!
+    
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet var highScore: UILabel!
+    @IBOutlet var highScoreLabel: UILabel!
     
     var score = 0
+    var highscore = 0
     
     var tickCount = 1
     var time = Timer()
     
     func startTicks(){
-        time = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
+        time = Timer.scheduledTimer(timeInterval: 0.20, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
         if alive == true {
@@ -151,6 +154,12 @@ var playSound = AVAudioPlayer()
                 scoreLabel.text = "Score: \(score)"
                 spawnApple()
                 touchApple = true
+                UserDefaults.standard.set(highScoreLabel.text, forKey: "highscore")
+                if score > highscore {
+                    let newHighscore = UserDefaults.standard.integer(forKey: "highscore")
+                    highScoreLabel.text = "High Score: \(newHighscore)"
+                }
+                
             }
             gridViews[snakeGoingToGo].backgroundColor = UIColor.green
             snakeHead = snakeGoingToGo
