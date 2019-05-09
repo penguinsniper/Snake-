@@ -79,19 +79,19 @@
 				6A1D2D3B227A2D0E00E07C42 /* Assets.xcassets */,
 				6A1D2D3D227A2D0E00E07C42 /* LaunchScreen.storyboard */,
 				6A1D2D40227A2D0E00E07C42 /* Info.plist */,
-				6A23941F2284B708007C1362 /* New Group */,
+				6A23941F2284B708007C1362 /* Audio */,
 			);
 			path = "Snake🐍";
 			sourceTree = "<group>";
 		};
-		6A23941F2284B708007C1362 /* New Group */ = {
+		6A23941F2284B708007C1362 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
 				6A2394262284B779007C1362 /* Apple Bite sound effect.mp3 */,
 				6A2394282284B77D007C1362 /* Door Kick Down Sound Effect.mp3 */,
 				6A23942A2284B780007C1362 /* Snake Hissing Sound Effect.mp3 */,
 			);
-			path = "New Group";
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		6ACA7DA2227B852700DB2F56 /* Frameworks */ = {
