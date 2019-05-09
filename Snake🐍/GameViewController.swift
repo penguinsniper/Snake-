@@ -173,8 +173,6 @@ var playSound = AVAudioPlayer()
     func deleteSnake() {
         gridViews[snakeArray[0]].backgroundColor = UIColor.black
         snakeArray.remove(at: 0)
-        
-        
     }
     func createSnake() {
         var startPoint = Int((gridSize * gridSize) / 2)
