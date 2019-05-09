@@ -37,6 +37,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet var downSwipe: UISwipeGestureRecognizer!
     @IBOutlet var upSwipe: UISwipeGestureRecognizer!
     
+    @IBOutlet var restartButton: UIButton!
+    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var highScore: UILabel!
     
@@ -46,7 +48,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var time = Timer()
     
     func startTicks(){
-        time = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
+        time = Timer.scheduledTimer(timeInterval: 0.20, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
         if alive == true {
