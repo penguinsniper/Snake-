@@ -15,9 +15,7 @@ import UIKit
 import AVFoundation
 
 class GameViewController: UIViewController, AVAudioPlayerDelegate {
-    var snakeSound: AVAudioPlayer?
-    var appleSound: AVAudioPlayer?
-    var doorSound: AVAudioPlayer?
+var playSound = AVAudioPlayer()
     
     
     
@@ -87,6 +85,13 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         spawnApple()
         createSnake()
         alive = true
+        do {
+            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "Snake Hissing Sound Effect", ofType: "mp3")!))
+            
+        } catch {
+            print("error, no audio")
+        }
+        
         
     }
     
