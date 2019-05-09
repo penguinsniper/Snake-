@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let newHighScore = UserDefaults.standard.integer(forKey: "highscore")
+        menuHighScore.text = "High Score: \(newHighScore)"
         
     }
   
