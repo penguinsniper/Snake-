@@ -15,7 +15,9 @@ import UIKit
 import AVFoundation
 
 class GameViewController: UIViewController, AVAudioPlayerDelegate {
-    var playSound: AVAudioPlayer?
+    var snakeSound: AVAudioPlayer?
+    var appleSound: AVAudioPlayer?
+    var doorSound: AVAudioPlayer?
     
     
     
