@@ -173,14 +173,7 @@ var playSound = AVAudioPlayer()
     func deleteSnake() {
         gridViews[snakeArray[0]].backgroundColor = UIColor.black
         snakeArray.remove(at: 0)
-        do {
-            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "Door Kick Down Sound Effect", ofType: "mp3")!))
-            playSound.prepareToPlay()
-            playSound.play()
-            
-        } catch {
-            print("error, no audio")
-        }
+        
         
     }
     func createSnake() {
