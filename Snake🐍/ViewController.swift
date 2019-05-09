@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var highScore:Int = 0
     
 
+    @IBOutlet var menuHighScore: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let newHighScore = UserDefaults.standard.integer(forKey: "highscore")
