@@ -15,9 +15,7 @@ import UIKit
 import AVFoundation
 
 class GameViewController: UIViewController, AVAudioPlayerDelegate {
-    var snakeSound: AVAudioPlayer?
-    var appleSound: AVAudioPlayer?
-    var doorSound: AVAudioPlayer?
+var playSound = AVAudioPlayer()
     
     
     
@@ -40,9 +38,10 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet var restartButton: UIButton!
     
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet var highScore: UILabel!
+    @IBOutlet var highScoreLabel: UILabel!
     
     var score = 0
+    var highscore = 0
     
     var tickCount = 1
     var time = Timer()
@@ -89,6 +88,13 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         spawnApple()
         createSnake()
         alive = true
+        do {
+            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "Snake Hissing Sound Effect", ofType: "mp3")!))
+            
+        } catch {
+            print("error, no audio")
+        }
+        
         
     }
     
@@ -148,6 +154,12 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                 scoreLabel.text = "Score: \(score)"
                 spawnApple()
                 touchApple = true
+                UserDefaults.standard.set(highScoreLabel.text, forKey: "highscore")
+                if score > highscore {
+                    let newHighscore = UserDefaults.standard.integer(forKey: "highscore")
+                    highScoreLabel.text = "High Score: \(newHighscore)"
+                }
+                
             }
             gridViews[snakeGoingToGo].backgroundColor = UIColor.green
             snakeHead = snakeGoingToGo
