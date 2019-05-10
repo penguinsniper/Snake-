@@ -89,7 +89,7 @@ var playSound = AVAudioPlayer()
         createSnake()
         alive = true
         do {
-            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "Snake Hissing Sound Effect", ofType: "mp3")!))
+            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
             playSound.prepareToPlay()
             playSound.play()
             
