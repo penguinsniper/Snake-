@@ -62,18 +62,6 @@ var playSound = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if touchApple == true{
-            do {
-                playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "appleBiteSoundEffect", ofType: "mp3")!))
-                playSound.prepareToPlay()
-                playSound.play()
-                
-            } catch {
-                print("error, no audio")
-            }
-            
-        }
-        
         startGame()
         startTicks()
         score = 0
