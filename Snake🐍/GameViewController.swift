@@ -64,7 +64,6 @@ var playSound = AVAudioPlayer()
         super.viewDidLoad()
         startGame()
         startTicks()
-        score = 0
         
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
@@ -88,6 +87,7 @@ var playSound = AVAudioPlayer()
         spawnApple()
         createSnake()
         alive = true
+        score = 0
         do {
             playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
             playSound.prepareToPlay()
