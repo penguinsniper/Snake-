@@ -62,6 +62,18 @@ var playSound = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if touchApple == true{
+            do {
+                playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "appleBiteSoundEffect", ofType: "mp3")!))
+                playSound.prepareToPlay()
+                playSound.play()
+                
+            } catch {
+                print("error, no audio")
+            }
+            
+        }
+        
         startGame()
         startTicks()
         score = 0
@@ -89,7 +101,7 @@ var playSound = AVAudioPlayer()
         createSnake()
         alive = true
         do {
-            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "Snake Hissing Sound Effect", ofType: "mp3")!))
+            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
             playSound.prepareToPlay()
             playSound.play()
             
@@ -141,14 +153,16 @@ var playSound = AVAudioPlayer()
             }
         case 3:
             snakeGoingToGo = snakeHead - gridSize
+            if snakeGoingToGo >= gridSize * gridSize {
+                validSpace = false
+            }
         case 4:
             snakeGoingToGo = snakeHead + gridSize
+            if snakeGoingToGo >= gridSize * gridSize {
+                validSpace = false
+            }
         default:
             print("fail")
-        }
-        if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
-            alive = false
-            validSpace = false
         }
         if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true{
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
@@ -161,11 +175,15 @@ var playSound = AVAudioPlayer()
                     let newHighscore = UserDefaults.standard.integer(forKey: "highscore")
                     highScoreLabel.text = "High Score: \(newHighscore)"
                 }
-                
             }
-            gridViews[snakeGoingToGo].backgroundColor = UIColor.green
-            snakeHead = snakeGoingToGo
-            snakeArray += [snakeGoingToGo]
+            if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
+                alive = false
+                validSpace = false
+            } else {
+                gridViews[snakeGoingToGo].backgroundColor = UIColor.green
+                snakeHead = snakeGoingToGo
+                snakeArray += [snakeGoingToGo]
+            }
         } else {
             alive = false
         }
