@@ -153,14 +153,16 @@ var playSound = AVAudioPlayer()
             }
         case 3:
             snakeGoingToGo = snakeHead - gridSize
+            if snakeGoingToGo >= gridSize * gridSize {
+                validSpace = false
+            }
         case 4:
             snakeGoingToGo = snakeHead + gridSize
+            if snakeGoingToGo >= gridSize * gridSize {
+                validSpace = false
+            }
         default:
             print("fail")
-        }
-        if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
-            alive = false
-            validSpace = false
         }
         if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true{
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
@@ -173,11 +175,15 @@ var playSound = AVAudioPlayer()
                     let newHighscore = UserDefaults.standard.integer(forKey: "highscore")
                     highScoreLabel.text = "High Score: \(newHighscore)"
                 }
-                
             }
-            gridViews[snakeGoingToGo].backgroundColor = UIColor.green
-            snakeHead = snakeGoingToGo
-            snakeArray += [snakeGoingToGo]
+            if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
+                alive = false
+                validSpace = false
+            } else {
+                gridViews[snakeGoingToGo].backgroundColor = UIColor.green
+                snakeHead = snakeGoingToGo
+                snakeArray += [snakeGoingToGo]
+            }
         } else {
             alive = false
         }
