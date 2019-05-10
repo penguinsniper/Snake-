@@ -51,12 +51,14 @@ var playSound = AVAudioPlayer()
     }
     @objc func tick(){
         if alive == true {
-        moveSnake()
-        if touchApple == false && snakeArray.count > 3 {
-            deleteSnake()
+            moveSnake()
+            if touchApple == false && snakeArray.count > 3 {
+                deleteSnake()
+            } else {
+                touchApple = false
+            }
         } else {
-            touchApple = false
-        }
+            death()
         }
     }
     
@@ -120,7 +122,11 @@ var playSound = AVAudioPlayer()
             view.addSubview(gridViews[REP-1])
         }
     }
-    
+    func death() {
+        for numOfArray in 0...snakeArray.count - 1 {
+           gridViews[snakeArray[numOfArray]].backgroundColor = UIColor.red
+        }
+    }
     func spawnApple() {
         var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         if gridViews[appleView].backgroundColor == UIColor.black {
