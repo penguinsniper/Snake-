@@ -56,8 +56,6 @@ var playSound = AVAudioPlayer()
             } else {
                 touchApple = false
             }
-        } else {
-            death()
         }
     }
     
@@ -109,7 +107,9 @@ var playSound = AVAudioPlayer()
             view.addSubview(gridViews[REP-1])
         }
     }
+    
     var numIntoTheSnakeArray = 0
+    
     func death() {
         do {
             playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
@@ -126,11 +126,14 @@ var playSound = AVAudioPlayer()
     }
     
     @objc func changeColorAtDeath() {
-        gridViews[snakeArray[numIntoTheSnakeArray]].backgroundColor = UIColor.red
-        if numIntoTheSnakeArray == 0{
+        print(numIntoTheSnakeArray)
+        let num = snakeArray[numIntoTheSnakeArray]
+        gridViews[num].backgroundColor = UIColor.red
+        if numIntoTheSnakeArray == 0 {
             timerTwo.invalidate()
+            print("stop")
         }
-        numIntoTheSnakeArray += 1 - 1
+        numIntoTheSnakeArray -= 1
     }
     func spawnApple() {
         var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
@@ -141,11 +144,13 @@ var playSound = AVAudioPlayer()
     }
     
     func moveSnake() {
+        if alive == true {
         var snakeGoingToGo = 0
         var validSpace = true
         if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
             alive = false
             validSpace = false
+            death()
         }
         switch movement {
         case 1:
@@ -202,6 +207,7 @@ var playSound = AVAudioPlayer()
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
                 alive = false
                 validSpace = false
+                death()
             } else {
                 gridViews[snakeGoingToGo].backgroundColor = UIColor.green
                 snakeHead = snakeGoingToGo
@@ -209,14 +215,18 @@ var playSound = AVAudioPlayer()
             }
         } else {
             alive = false
+            death()
         }
         if appleCreate == true {
             spawnApple()
         }
+        }
     }
     func deleteSnake() {
+        if alive == true {
         gridViews[snakeArray[0]].backgroundColor = UIColor.black
         snakeArray.remove(at: 0)
+        }
     }
     func createSnake() {
         var startPoint = Int((gridSize * gridSize) / 2)
