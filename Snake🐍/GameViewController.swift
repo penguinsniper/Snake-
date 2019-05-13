@@ -111,18 +111,18 @@ var playSound = AVAudioPlayer()
             view.addSubview(gridViews[REP-1])
         }
     }
-    var numOfArray = 0
+    var numIntoTheSnakeArray = 0
     func death() {
-        numOfArray = 0
+        numIntoTheSnakeArray = snakeArray.count - 1
         timerTwo = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(GameViewController.changeColorAtDeath)), userInfo: nil, repeats: true)
     }
     
     @objc func changeColorAtDeath() {
-        gridViews[snakeArray[numOfArray]].backgroundColor = UIColor.red
-        numOfArray += 1
-        if numOfArray == snakeArray.count {
+        gridViews[snakeArray[numIntoTheSnakeArray]].backgroundColor = UIColor.red
+        if numIntoTheSnakeArray == 0{
             timerTwo.invalidate()
         }
+        numIntoTheSnakeArray += 1 - 1
     }
     func spawnApple() {
         var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
