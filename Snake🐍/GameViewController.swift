@@ -43,38 +43,28 @@ var playSound = AVAudioPlayer()
     
     var tickCount = 1
     var time = Timer()
+    var timerTwo = Timer()
     
     func startTicks(){
         time = Timer.scheduledTimer(timeInterval: 0.20, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
         if alive == true {
-        moveSnake()
-        if touchApple == false && snakeArray.count > 3 {
-            deleteSnake()
+            moveSnake()
+            if touchApple == false && snakeArray.count > 3 {
+                deleteSnake()
+            } else {
+                touchApple = false
+            }
         } else {
-            touchApple = false
-        }
+            death()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if touchApple == true{
-            do {
-                playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "appleBiteSoundEffect", ofType: "mp3")!))
-                playSound.prepareToPlay()
-                playSound.play()
-                
-            } catch {
-                print("error, no audio")
-            }
-            
-        }
-        
         startGame()
         startTicks()
-        score = 0
         
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
@@ -98,6 +88,7 @@ var playSound = AVAudioPlayer()
         spawnApple()
         createSnake()
         alive = true
+        score = 0
         do {
             playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
             playSound.prepareToPlay()
@@ -118,7 +109,19 @@ var playSound = AVAudioPlayer()
             view.addSubview(gridViews[REP-1])
         }
     }
+    var numOfArray = 0
+    func death() {
+        numOfArray = 0
+        timerTwo = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(GameViewController.changeColorAtDeath)), userInfo: nil, repeats: true)
+    }
     
+    @objc func changeColorAtDeath() {
+        gridViews[snakeArray[numOfArray]].backgroundColor = UIColor.red
+        numOfArray += 1
+        if numOfArray == snakeArray.count {
+            timerTwo.invalidate()
+        }
+    }
     func spawnApple() {
         var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         if gridViews[appleView].backgroundColor == UIColor.black {
@@ -162,11 +165,22 @@ var playSound = AVAudioPlayer()
         default:
             print("fail")
         }
+        var appleCreate = false
         if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true{
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
+                if touchApple == true{
+                    do {
+                        playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "appleBiteSoundEffect", ofType: "mp3")!))
+                        playSound.prepareToPlay()
+                        playSound.play()
+                        
+                    } catch {
+                        print("error, no audio")
+                    }
+                }
                 score += 1
                 scoreLabel.text = "Score: \(score)"
-                spawnApple()
+                appleCreate = true
                 touchApple = true
                 if score > highscore {
                     highscore = score
@@ -185,6 +199,9 @@ var playSound = AVAudioPlayer()
             }
         } else {
             alive = false
+        }
+        if appleCreate == true {
+            spawnApple()
         }
     }
     func deleteSnake() {
