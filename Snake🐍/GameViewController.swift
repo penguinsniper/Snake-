@@ -39,7 +39,6 @@ var playSound = AVAudioPlayer()
     @IBOutlet var highScoreLabel: UILabel!
     
     var score = 0
-    var highScore = UserDefaults.standard.value(forKey: "highScore") as! Int
     
     var tickCount = 1
     var time = Timer()
@@ -197,10 +196,7 @@ var playSound = AVAudioPlayer()
                 scoreLabel.text = "Score: \(score)"
                 appleCreate = true
                 touchApple = true
-                if score > highScore {
-                    UserDefaults.setValue(score, forKey: "highScore")
-                    highScoreLabel.text = "High Score: \(highScore)"
-                }
+                
             }
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
                 alive = false
