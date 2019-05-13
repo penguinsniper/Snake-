@@ -41,6 +41,10 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SIO-89-4Wh"/>
                     </view>
+                    <connections>
+                        <outlet property="mainColor" destination="SQX-8g-4Ft" id="N0l-uD-IYZ"/>
+                        <outlet property="secondColor" destination="jHl-KH-vxr" id="VfZ-EE-AxG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7G-wg-nB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPn-ZH-Tur">
-                                <rect key="frame" x="45" y="42" width="267" height="66"/>
+                                <rect key="frame" x="45" y="42" width="312" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="55"/>
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -152,7 +156,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er7-mh-eQk">
-                                <rect key="frame" x="365" y="42" width="310" height="66"/>
+                                <rect key="frame" x="365" y="42" width="403" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="55"/>
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
