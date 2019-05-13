@@ -110,6 +110,7 @@ var playSound = AVAudioPlayer()
     var numIntoTheSnakeArray = 0
     var fixForZero = false
     func death() {
+        fixForZero = false
         do {
             playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
             playSound.prepareToPlay()
