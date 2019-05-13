@@ -117,8 +117,9 @@ var playSound = AVAudioPlayer()
     }
     
     var numIntoTheSnakeArray = 0
-    
+    var fixForZero = false
     func death() {
+        fixForZero = false
         do {
             playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
             playSound.prepareToPlay()
@@ -134,14 +135,19 @@ var playSound = AVAudioPlayer()
     }
     
     @objc func changeColorAtDeath() {
-        print(numIntoTheSnakeArray)
-        let num = snakeArray[numIntoTheSnakeArray]
-        gridViews[num].backgroundColor = UIColor.red
-        if numIntoTheSnakeArray == 0 {
+        if fixForZero == false {
+            print(numIntoTheSnakeArray)
+            let num = snakeArray[numIntoTheSnakeArray]
+            gridViews[num].backgroundColor = UIColor.red
+            if numIntoTheSnakeArray == 0{
+                timerTwo.invalidate()
+                fixForZero = true
+            }
+            numIntoTheSnakeArray -= 1
+        } else {
             timerTwo.invalidate()
-            print("stop")
+            print("why")
         }
-        numIntoTheSnakeArray -= 1
     }
     func spawnApple() {
         var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
@@ -222,7 +228,6 @@ var playSound = AVAudioPlayer()
             }
         } else {
             alive = false
-            death()
         }
         if appleCreate == true {
             spawnApple()
@@ -256,14 +261,18 @@ var playSound = AVAudioPlayer()
             }
         }
         if (sender.direction == .up) {
-            if gridViews[snakeHead - gridSize].backgroundColor != UIColor.green {
-                movement = 3
+            if snakeHead - gridSize > 0 {
+                if gridViews[snakeHead - gridSize].backgroundColor != UIColor.green {
+                    movement = 3
+                }
             }
         }
         
         if (sender.direction == .down) {
-            if gridViews[snakeHead + gridSize].backgroundColor != UIColor.green {
-                movement = 4
+            if snakeHead + gridSize < gridSize*gridSize - 1 {
+                if gridViews[snakeHead + gridSize].backgroundColor != UIColor.green {
+                    movement = 4
+                }
             }
         }
         }

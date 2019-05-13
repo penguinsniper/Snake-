@@ -10,6 +10,8 @@ import UIKit
 
 class ColorViewController: UIViewController {
 
+    @IBOutlet var mainColor: UIPickerView!
+    @IBOutlet var secondColor: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
