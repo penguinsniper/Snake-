@@ -39,7 +39,6 @@ var playSound = AVAudioPlayer()
     @IBOutlet var highScoreLabel: UILabel!
     
     var score = 0
-    var highscore = 0
     
     var tickCount = 1
     var time = Timer()
@@ -111,9 +110,18 @@ var playSound = AVAudioPlayer()
     var numIntoTheSnakeArray = 0
     var fixForZero = false
     func death() {
-        fixForZero = false
+        do {
+            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
+            playSound.prepareToPlay()
+            playSound.play()
+            
+        } catch {
+            print("error, no audio")
+        }
         numIntoTheSnakeArray = snakeArray.count - 1
         timerTwo = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(GameViewController.changeColorAtDeath)), userInfo: nil, repeats: true)
+        
+        
     }
     
     @objc func changeColorAtDeath() {
@@ -193,12 +201,7 @@ var playSound = AVAudioPlayer()
                 scoreLabel.text = "Score: \(score)"
                 appleCreate = true
                 touchApple = true
-                if score > highscore {
-                    highscore = score
-                    UserDefaults.standard.set(highscore, forKey: "highscore")
-                    let newHighscore = UserDefaults.standard.integer(forKey: "highscore")
-                    highScoreLabel.text = "High Score: \(newHighscore)"
-                }
+                
             }
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
                 alive = false
