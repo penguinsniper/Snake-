@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPn-ZH-Tur">
-                                <rect key="frame" x="45" y="42" width="191" height="66"/>
+                                <rect key="frame" x="45" y="42" width="267" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="55"/>
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -147,6 +147,9 @@
                                 <state key="normal" title="Restart">
                                     <color key="titleColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                 </state>
+                                <connections>
+                                    <action selector="whenRestartPressed:" destination="vLe-me-n48" eventType="touchUpInside" id="PFs-GA-au2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er7-mh-eQk">
                                 <rect key="frame" x="365" y="42" width="310" height="66"/>
@@ -167,7 +170,6 @@
                         <outlet property="downSwipe" destination="voE-qD-T2A" id="MCF-QM-Ew8"/>
                         <outlet property="highScoreLabel" destination="Er7-mh-eQk" id="Kq9-cw-e46"/>
                         <outlet property="leftSwipe" destination="1s2-JF-pMh" id="hnj-Tm-z07"/>
-                        <outlet property="restartButton" destination="1Bz-45-4hc" id="3Wz-Jn-W3e"/>
                         <outlet property="rightSwipe" destination="Put-ZA-2Yg" id="uSD-1P-3Uo"/>
                         <outlet property="scoreLabel" destination="nPn-ZH-Tur" id="Y1E-vS-bE2"/>
                         <outlet property="upSwipe" destination="2Sb-dh-zAa" id="Lqe-3G-Ng6"/>
@@ -179,13 +181,13 @@
                 <swipeGestureRecognizer direction="down" id="voE-qD-T2A"/>
                 <swipeGestureRecognizer direction="up" id="2Sb-dh-zAa"/>
             </objects>
-            <point key="canvasLocation" x="863" y="36"/>
+            <point key="canvasLocation" x="862.5" y="35.7421875"/>
         </scene>
     </scenes>
     <resources>
         <image name="playImage" width="1500" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cLb-VT-7VE"/>
+        <segue reference="mkm-u4-9cW"/>
     </inferredMetricsTieBreakers>
 </document>

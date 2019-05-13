@@ -35,8 +35,6 @@ var playSound = AVAudioPlayer()
     @IBOutlet var downSwipe: UISwipeGestureRecognizer!
     @IBOutlet var upSwipe: UISwipeGestureRecognizer!
     
-    @IBOutlet var restartButton: UIButton!
-    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var highScoreLabel: UILabel!
     
@@ -170,8 +168,9 @@ var playSound = AVAudioPlayer()
                 scoreLabel.text = "Score: \(score)"
                 spawnApple()
                 touchApple = true
-                UserDefaults.standard.set(highScoreLabel.text, forKey: "highscore")
                 if score > highscore {
+                    highscore = score
+                    UserDefaults.standard.set(highscore, forKey: "highscore")
                     let newHighscore = UserDefaults.standard.integer(forKey: "highscore")
                     highScoreLabel.text = "High Score: \(newHighscore)"
                 }
@@ -225,5 +224,11 @@ var playSound = AVAudioPlayer()
         }
         }
     }
+    @IBAction func whenRestartPressed(_ sender: Any) {
+        startGame()
+        score = 0
+        scoreLabel.text = "Score: \(0)"
+    }
+    
 }
 
