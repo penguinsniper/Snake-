@@ -58,7 +58,6 @@ var playSound = AVAudioPlayer()
                 touchApple = false
             }
             for timeWentThrogh in 1...snakeArray.count {
-                print(snakeArray.count - (timeWentThrogh-1))
                 let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
                 let colorControllerLink = ColorViewController()
                 if timeWentThrogh % 2 == 0 {

@@ -8,21 +8,42 @@
 
 import UIKit
 
-class ColorViewController: UIViewController {
+class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
    
 
     @IBOutlet var mainColor: UIPickerView!
     @IBOutlet var secondColor: UIPickerView!
-    var pickerView: [String] = [String]()
-    var pickerView2: [String] = [String]()
+    var pickerViewColors: [String] = [String]()
+    var pickerViewColors2: [String] = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerView = ["White", "Blue", "Gray", "Orange", "Cyan", "Magenta", "Yellow", "Purple"]
-        pickerView2 = ["White", "Blue", "Gray", "Orange", "Cyan", "Magenta", "Yellow", "Purple"]
+        mainColor.delegate = self
+        secondColor.delegate = self
+        mainColor.dataSource = self
+        secondColor.dataSource = self
+        pickerViewColors = ["White", "Blue", "Gray", "Orange", "Cyan", "Magenta", "Yellow", "Purple"]
+        pickerViewColors2 = ["White", "Blue", "Gray", "Orange", "Cyan", "Magenta", "Yellow", "Purple"]
         
-
         // Do any additional setup after loading the view.
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
 
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerViewColors.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch mainColor.selectedRow(inComponent: 0) {
+            
+        case 1:
+            
+        default: break
+            
+        }
+        return pickerViewColors[row]
+    }
 }
