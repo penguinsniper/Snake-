@@ -147,7 +147,7 @@ var playSound = AVAudioPlayer()
         if fixForZero == false {
             print(numIntoTheSnakeArray)
             let num = snakeArray[numIntoTheSnakeArray]
-            gridViews[num].backgroundColor = UIColor.red
+            gridViews[num].backgroundColor = UIColor(red:0.70, green:0.00, blue:0.00, alpha:1.0)
             if numIntoTheSnakeArray == 0{
                 timerTwo.invalidate()
                 fixForZero = true
