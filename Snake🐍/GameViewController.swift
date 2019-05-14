@@ -37,6 +37,8 @@ var playSound = AVAudioPlayer()
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var highScoreLabel: UILabel!
+    var highScore: Int!
+    var newHighScore: UserDefaults!
     
     var score = 0
     
@@ -87,6 +89,13 @@ var playSound = AVAudioPlayer()
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
+        
+        
+        if let NewhighScore = UserDefaults.standard.data(forKey: "highScore") {
+            highScoreLabel.text = "High Score: \(highScore)"
+        } else {
+            highScore = 0
+        }
     }
     
     func startGame(){
@@ -211,7 +220,11 @@ var playSound = AVAudioPlayer()
                 scoreLabel.text = "Score: \(score)"
                 appleCreate = true
                 touchApple = true
-                
+                if score > highScore {
+                    highScore = score
+                    let gamehighScore = UserDefaults.standard.set(highScore, forKey: "highScore")
+                    
+                }
             }
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.green {
                 alive = false
