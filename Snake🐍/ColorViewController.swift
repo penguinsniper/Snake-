@@ -12,10 +12,13 @@ class ColorViewController: UIViewController {
 
     @IBOutlet var mainColor: UIPickerView!
     @IBOutlet var secondColor: UIPickerView!
+    var pickerView: [String] = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerView = ["White", "Blue", "Gray",]
 
         // Do any additional setup after loading the view.
     }
+    
 
 }
