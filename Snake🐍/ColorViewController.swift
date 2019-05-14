@@ -16,7 +16,7 @@ class ColorViewController: UIViewController {
     var pickerView: [String] = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerView = ["White", "Blue", "Gray","Orange", "Cyan","Magenta","Yellow", "Purple"]
+        pickerView = ["White", "Blue", "Gray", "Orange", "Cyan", "Magenta", "Yellow", "Purple"]
 
         // Do any additional setup after loading the view.
     }
