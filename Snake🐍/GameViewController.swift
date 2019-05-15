@@ -148,6 +148,7 @@ var playSound = AVAudioPlayer()
     }
     
     func moveSnake() {
+        var appleCreate = false
         if alive == true {
         var snakeGoingToGo = 0
         var validSpace = true
@@ -184,7 +185,6 @@ var playSound = AVAudioPlayer()
         default:
             print("fail")
         }
-        var appleCreate = false
         if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize - 1 && validSpace == true{
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
                 
@@ -218,7 +218,7 @@ var playSound = AVAudioPlayer()
         if appleCreate == true {
             spawnApple()
         }
-        }
+        
     }
     func deleteSnake() {
         if alive == true {
