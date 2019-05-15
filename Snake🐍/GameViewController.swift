@@ -105,14 +105,6 @@ var playSound = AVAudioPlayer()
         createSnake()
         alive = true
         score = 0
-        do {
-            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "shortSnake", ofType: "mp3")!))
-            playSound.prepareToPlay()
-            playSound.play()
-            
-        } catch {
-            print("error, no audio")
-        }
         
         
     }
