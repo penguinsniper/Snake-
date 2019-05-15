@@ -106,7 +106,7 @@ var playSound = AVAudioPlayer()
         alive = true
         score = 0
         do {
-            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
+            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "shortSnake", ofType: "mp3")!))
             playSound.prepareToPlay()
             playSound.play()
             
@@ -131,7 +131,7 @@ var playSound = AVAudioPlayer()
     func death() {
         fixForZero = false
         do {
-            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
+            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "shortSnake", ofType: "mp3")!))
             playSound.prepareToPlay()
             playSound.play()
             
