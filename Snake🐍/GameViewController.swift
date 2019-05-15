@@ -59,11 +59,10 @@ var playSound = AVAudioPlayer()
             }
             for timeWentThrogh in 1...snakeArray.count {
                 let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
-                let colorControllerLink = ColorViewController(throwAway: "")
-                if timeWentThrogh % 2 == 0 {
-                    gridViews[num].backgroundColor = colorControllerLink.mainColorCross
+                if timeWentThrogh % 2 != 0 {
+                    gridViews[num].backgroundColor = UIColor.green
                 } else {
-                    gridViews[num].backgroundColor = colorControllerLink.secondColorCross
+                    gridViews[num].backgroundColor = UIColor.yellow
                 }
             }
         }
