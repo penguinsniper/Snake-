@@ -57,6 +57,16 @@ var playSound = AVAudioPlayer()
             } else {
                 touchApple = false
             }
+            for timeWentThrogh in 1...snakeArray.count {
+                print(snakeArray.count - (timeWentThrogh-1))
+                let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
+                let colorControllerLink = ColorViewController()
+                if timeWentThrogh % 2 == 0 {
+                    gridViews[num].backgroundColor = UIColor.yellow
+                } else {
+                    gridViews[num].backgroundColor = UIColor.green
+                }
+            }
         }
     }
     
@@ -93,7 +103,7 @@ var playSound = AVAudioPlayer()
         alive = true
         score = 0
         do {
-            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
+            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "shortSnake", ofType: "mp3")!))
             playSound.prepareToPlay()
             playSound.play()
             
@@ -118,7 +128,7 @@ var playSound = AVAudioPlayer()
     func death() {
         fixForZero = false
         do {
-            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "snakeHissingSoundEffect", ofType: "mp3")!))
+            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "shortSnake", ofType: "mp3")!))
             playSound.prepareToPlay()
             playSound.play()
             
@@ -128,14 +138,13 @@ var playSound = AVAudioPlayer()
         numIntoTheSnakeArray = snakeArray.count - 1
         timerTwo = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(GameViewController.changeColorAtDeath)), userInfo: nil, repeats: true)
         
-        
     }
     
     @objc func changeColorAtDeath() {
         if fixForZero == false {
             print(numIntoTheSnakeArray)
             let num = snakeArray[numIntoTheSnakeArray]
-            gridViews[num].backgroundColor = UIColor.red
+            gridViews[num].backgroundColor = UIColor(red:0.70, green:0.00, blue:0.00, alpha:1.0)
             if numIntoTheSnakeArray == 0{
                 timerTwo.invalidate()
                 fixForZero = true
@@ -192,7 +201,7 @@ var playSound = AVAudioPlayer()
             print("fail")
         }
         var appleCreate = false
-        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true{
+        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize - 1 && validSpace == true{
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
                 if touchApple == true{
                     do {
@@ -228,6 +237,7 @@ var playSound = AVAudioPlayer()
             }
         } else {
             alive = false
+            death()
         }
         if appleCreate == true {
             spawnApple()

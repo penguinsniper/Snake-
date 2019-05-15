@@ -24,12 +24,23 @@
                                     <constraint firstAttribute="width" constant="718" id="rqP-SA-IJe"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAm-iB-8TP">
+                                <rect key="frame" x="254" y="170" width="260" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="l4I-Nq-rJL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.13327670620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bOR-jk-KEu" secondAttribute="bottom" constant="272" id="2oM-OS-aer"/>
                             <constraint firstItem="bOR-jk-KEu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="278" id="QVg-ED-b0S"/>
                             <constraint firstItem="bOR-jk-KEu" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-244" id="ZsD-1Y-XOd"/>
+                            <constraint firstItem="bOR-jk-KEu" firstAttribute="top" secondItem="oAm-iB-8TP" secondAttribute="bottom" constant="8" symbolic="YES" id="ffg-Dv-hos"/>
+                            <constraint firstItem="oAm-iB-8TP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lDI-fo-X6b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
