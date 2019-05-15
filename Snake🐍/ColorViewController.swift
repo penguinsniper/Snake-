@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColorViewController: GameViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
    
 
