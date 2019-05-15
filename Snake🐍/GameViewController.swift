@@ -38,7 +38,7 @@ var playSound = AVAudioPlayer()
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var highScoreLabel: UILabel!
     var highScore = 0
-    
+    let bestHighScore = UserDefaults.standard.integer(forKey: "highScore")
     
     var score = 0
     
@@ -91,8 +91,8 @@ var playSound = AVAudioPlayer()
         view.addGestureRecognizer(downSwipe)
         
         
-        let newHighScore = UserDefaults.standard.integer(forKey: "highScore")
-        highScoreLabel.text = "High Score: \(newHighScore)"
+        
+        highScoreLabel.text = "High Score: \(bestHighScore)"
     }
     
     func startGame(){
@@ -219,7 +219,7 @@ var playSound = AVAudioPlayer()
                 appleCreate = true
                 touchApple = true
                 
-                if score > highScore {
+                if score > bestHighScore && score > highScore {
                     highScore = score
                     UserDefaults.standard.set(highScore, forKey: "highScore")
                     let newHighScore = UserDefaults.standard.integer(forKey: "highScore")
