@@ -119,14 +119,6 @@ var playSound = AVAudioPlayer()
     var fixForZero = false
     func death() {
         fixForZero = false
-        do {
-            playSound = try AVAudioPlayer(contentsOf: URL.init (fileURLWithPath: Bundle.main.path(forResource: "shortSnake", ofType: "mp3")!))
-            playSound.prepareToPlay()
-            playSound.play()
-            
-        } catch {
-            print("error, no audio")
-        }
         numIntoTheSnakeArray = snakeArray.count - 1
         timerTwo = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(GameViewController.changeColorAtDeath)), userInfo: nil, repeats: true)
         
