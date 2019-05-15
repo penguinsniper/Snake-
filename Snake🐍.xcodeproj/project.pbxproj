@@ -13,8 +13,6 @@
 		6A1D2D3A227A2D0B00E07C42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1D2D38227A2D0B00E07C42 /* Main.storyboard */; };
 		6A1D2D3C227A2D0E00E07C42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A1D2D3B227A2D0E00E07C42 /* Assets.xcassets */; };
 		6A1D2D3F227A2D0E00E07C42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1D2D3D227A2D0E00E07C42 /* LaunchScreen.storyboard */; };
-		6A2394272284B779007C1362 /* appleBiteSoundEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A2394262284B779007C1362 /* appleBiteSoundEffect.mp3 */; };
-		6A2394292284B77D007C1362 /* doorKickDownSoundEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A2394282284B77D007C1362 /* doorKickDownSoundEffect.mp3 */; };
 		6ACA7DA4227B852700DB2F56 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACA7DA3227B852700DB2F56 /* CoreData.framework */; };
 		C471DDC2227B7C410010218C /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = C471DDC1227B7C410010218C /* Views.swift */; };
 		C4CB22102284B96100E9E491 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CB220F2284B96100E9E491 /* ColorViewController.swift */; };
@@ -29,8 +27,6 @@
 		6A1D2D3B227A2D0E00E07C42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A1D2D3E227A2D0E00E07C42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A1D2D40227A2D0E00E07C42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A2394262284B779007C1362 /* appleBiteSoundEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = appleBiteSoundEffect.mp3; path = ../../../../Desktop/audio/appleBiteSoundEffect.mp3; sourceTree = "<group>"; };
-		6A2394282284B77D007C1362 /* doorKickDownSoundEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = doorKickDownSoundEffect.mp3; path = ../../../../Desktop/audio/doorKickDownSoundEffect.mp3; sourceTree = "<group>"; };
 		6ACA7DA3227B852700DB2F56 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C471DDC1227B7C410010218C /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		C4CB220F2284B96100E9E491 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
@@ -77,18 +73,8 @@
 				6A1D2D3B227A2D0E00E07C42 /* Assets.xcassets */,
 				6A1D2D3D227A2D0E00E07C42 /* LaunchScreen.storyboard */,
 				6A1D2D40227A2D0E00E07C42 /* Info.plist */,
-				6A23941F2284B708007C1362 /* Audio */,
 			);
 			path = "Snake🐍";
-			sourceTree = "<group>";
-		};
-		6A23941F2284B708007C1362 /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				6A2394262284B779007C1362 /* appleBiteSoundEffect.mp3 */,
-				6A2394282284B77D007C1362 /* doorKickDownSoundEffect.mp3 */,
-			);
-			path = Audio;
 			sourceTree = "<group>";
 		};
 		6ACA7DA2227B852700DB2F56 /* Frameworks */ = {
@@ -158,10 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A1D2D3F227A2D0E00E07C42 /* LaunchScreen.storyboard in Resources */,
-				6A2394272284B779007C1362 /* appleBiteSoundEffect.mp3 in Resources */,
 				6A1D2D3C227A2D0E00E07C42 /* Assets.xcassets in Resources */,
 				6A1D2D3A227A2D0B00E07C42 /* Main.storyboard in Resources */,
-				6A2394292284B77D007C1362 /* doorKickDownSoundEffect.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
