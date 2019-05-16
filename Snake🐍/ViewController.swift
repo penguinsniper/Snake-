@@ -17,13 +17,19 @@ class ViewController: UIViewController {
 
     @IBOutlet var menuHighScore: UILabel!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
         let newHighScore = UserDefaults.standard.integer(forKey: "highScore")
         menuHighScore.text = "High Score: \(newHighScore)"
         
     }
   
+    
+    
+    
+    
     
 
 }
