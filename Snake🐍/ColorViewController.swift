@@ -9,7 +9,7 @@
 import UIKit
 
 class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
+    let userDefaults = UserDefaults.standard
    
 
     @IBOutlet var mainColor: UIPickerView!
@@ -92,10 +92,9 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         default: break
             
         }
+        userDefaults.set(mainColorCross, forKey: "mainColor")
+        userDefaults.set(secondColorCross, forKey: "secondColor")
         return pickerViewColors[row]
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

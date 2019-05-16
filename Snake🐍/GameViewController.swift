@@ -15,8 +15,8 @@ import UIKit
 import AVFoundation
 
 class GameViewController: UIViewController, AVAudioPlayerDelegate {
-var playSound = AVAudioPlayer()
-    
+    var playSound = AVAudioPlayer()
+    let userDefaults = UserDefaults.standard
     
     
     var gridViews:[UIView] = []
@@ -29,6 +29,8 @@ var playSound = AVAudioPlayer()
     var movement = 4
     var touchApple = false
     var alive = true
+    var mainColor:UIColor = UIColor.green
+    var secondColor:UIColor = UIColor.yellow
     
     @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
@@ -59,10 +61,11 @@ var playSound = AVAudioPlayer()
             }
             for timeWentThrogh in 1...snakeArray.count {
                 let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
+                
                 if timeWentThrogh % 2 == 0 {
-                    gridViews[num].backgroundColor = UIColor.yellow
+                    gridViews[num].backgroundColor = secondColor
                 } else {
-                    gridViews[num].backgroundColor = UIColor.green
+                    gridViews[num].backgroundColor = mainColor
                 }
             }
         }
@@ -91,6 +94,57 @@ var playSound = AVAudioPlayer()
         
         
         highScoreLabel.text = "High Score: \(bestHighScore)"
+        switch userDefaults.integer(forKey: "mainColor") {
+            
+        case 0:
+            mainColor = UIColor.green
+        case 1:
+            mainColor = UIColor.yellow
+        case 2:
+            mainColor = UIColor.orange
+        case 3:
+            mainColor = UIColor.blue
+        case 4:
+            mainColor = UIColor.cyan
+        case 5:
+            mainColor = UIColor.magenta
+        case 6:
+            mainColor = UIColor.purple
+        case 7:
+            mainColor = UIColor.brown
+        case 8:
+            mainColor = UIColor.white
+        case 9:
+            mainColor = UIColor.black
+        default:
+            mainColor = UIColor.green
+            
+        }
+        switch userDefaults.integer(forKey: "secondColor") {
+        case 0:
+            secondColor = UIColor.green
+        case 1:
+            secondColor = UIColor.yellow
+        case 2:
+            secondColor = UIColor.orange
+        case 3:
+            secondColor = UIColor.blue
+        case 4:
+            secondColor = UIColor.cyan
+        case 5:
+            secondColor = UIColor.magenta
+        case 6:
+            secondColor = UIColor.purple
+        case 7:
+            secondColor = UIColor.brown
+        case 8:
+            secondColor = UIColor.white
+        case 9:
+            secondColor = UIColor.black
+        default:
+            secondColor = UIColor.yellow
+            
+        }
     }
     
     func startGame(){
@@ -124,7 +178,6 @@ var playSound = AVAudioPlayer()
     
     @objc func changeColorAtDeath() {
         if fixForZero == false {
-            print(numIntoTheSnakeArray)
             let num = snakeArray[numIntoTheSnakeArray]
             gridViews[num].backgroundColor = UIColor(red:0.70, green:0.00, blue:0.00, alpha:1.0)
             if numIntoTheSnakeArray == 0{
