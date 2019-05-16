@@ -187,13 +187,12 @@ var playSound = AVAudioPlayer()
         }
         if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize - 1 && validSpace == true{
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
-                
-                }
                 score += 1
                 scoreLabel.text = "Score: \(score)"
                 
                 appleCreate = true
                 touchApple = true
+                }
                 
                 if score > bestHighScore && score > highScore {
                     highScore = score
