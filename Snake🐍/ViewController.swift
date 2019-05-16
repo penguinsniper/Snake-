@@ -13,7 +13,7 @@ import CoreData
 
 class ViewController: UIViewController {
     var highScore:Int = 0
-    
+    var difficulty:[Int] = []
 
     @IBOutlet var menuHighScore: UILabel!
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     
      @IBAction func whenEasyPressed(_ sender: Any) {
-        
+        difficulty = [1]
      }
     
      @IBAction func whenMediumPressed(_ sender: Any) {

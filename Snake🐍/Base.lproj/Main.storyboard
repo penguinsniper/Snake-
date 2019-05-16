@@ -93,6 +93,9 @@
                                 <state key="normal" title="Easy">
                                     <color key="titleColor" red="0.0" green="1" blue="0.13327670620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="whenEasyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cil-iH-3t4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvV-dw-KKi">
                                 <rect key="frame" x="271" y="786" width="208" height="84"/>
@@ -101,6 +104,9 @@
                                 <state key="normal" title="Medium">
                                     <color key="titleColor" red="1" green="0.9455740238" blue="0.15483933559999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="whenMediumPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EZX-pY-5Se"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xj-kH-MT0">
                                 <rect key="frame" x="508" y="786" width="123" height="84"/>
@@ -109,6 +115,9 @@
                                 <state key="normal" title="Hard">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="whenHardPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVh-sO-NdJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
