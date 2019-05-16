@@ -115,6 +115,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         case 8:
             mainColor = UIColor.white
         case 9:
+            mainColor = UIColor.gray
+        case 10:
             mainColor = UIColor.black
         default:
             mainColor = UIColor.green
@@ -140,6 +142,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         case 8:
             secondColor = UIColor.white
         case 9:
+            secondColor = UIColor.gray
+        case 10:
             secondColor = UIColor.black
         default:
             secondColor = UIColor.yellow

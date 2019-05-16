@@ -14,6 +14,8 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     @IBOutlet var mainColor: UIPickerView!
     @IBOutlet var secondColor: UIPickerView!
+    var mainPicked = 0
+    var secondPicked = 0
     var pickerViewColors: [String] = [String]()
     var pickerViewColors2: [String] = [String]()
     override func viewDidLoad() {
@@ -23,8 +25,12 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         mainColor.dataSource = self
         secondColor.dataSource = self
         pickerViewColors = ["Green", "Yellow", "Orange", "Blue", "Cyan", "Magenta", "Purple",  "Brown", "White", "Gray", "Black"]
-        pickerViewColors2 = ["Green", "Yellow", "Orange", "Blue", "Cyan", "Magenta", "Purple", "Gray", "Brown", "White", "Black"]
+        pickerViewColors2 = ["Green", "Yellow", "Orange", "Blue", "Cyan", "Magenta", "Purple",  "Brown", "White", "Gray", "Black"]
         // Do any additional setup after loading the view.
+        mainPicked = userDefaults.integer(forKey: "secondColor")
+        secondPicked = userDefaults.integer(forKey: "secondColor")
+        mainColor.selectRow(mainPicked, inComponent: 0, animated: true)
+        secondColor.selectRow(secondPicked, inComponent: 0, animated: true)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
