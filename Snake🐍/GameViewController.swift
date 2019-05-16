@@ -185,15 +185,14 @@ var playSound = AVAudioPlayer()
         default:
             print("fail")
         }
-        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize - 1 && validSpace == true{
+        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize - 1 && validSpace == true {
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
-                
-                }
                 score += 1
                 scoreLabel.text = "Score: \(score)"
                 
                 appleCreate = true
                 touchApple = true
+                }
                 
                 if score > bestHighScore && score > highScore {
                     highScore = score
@@ -201,7 +200,7 @@ var playSound = AVAudioPlayer()
                     let newHighScore = UserDefaults.standard.integer(forKey: "highScore")
                     highScoreLabel.text = "High Score: \(newHighScore)"
                 }
-            }
+            
             if ifHittingSnake(theNumber:snakeGoingToGo) == true {
                 alive = false
                 validSpace = false
@@ -217,6 +216,7 @@ var playSound = AVAudioPlayer()
         } else {
             alive = false
             death()
+        }
         }
         
     }
