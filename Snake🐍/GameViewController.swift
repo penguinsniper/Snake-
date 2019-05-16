@@ -59,10 +59,10 @@ var playSound = AVAudioPlayer()
             }
             for timeWentThrogh in 1...snakeArray.count {
                 let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
-                if timeWentThrogh % 2 != 0 {
-                    gridViews[num].backgroundColor = UIColor.green
-                } else {
+                if timeWentThrogh % 2 == 0 {
                     gridViews[num].backgroundColor = UIColor.yellow
+                } else {
+                    gridViews[num].backgroundColor = UIColor.green
                 }
             }
         }
@@ -211,14 +211,14 @@ var playSound = AVAudioPlayer()
                 snakeHead = snakeGoingToGo
                 snakeArray += [snakeGoingToGo]
             }
+            if appleCreate == true {
+                spawnApple()
+            }
         } else {
             alive = false
             death()
         }
-        if appleCreate == true {
-            spawnApple()
-        }
-    
+        
     }
     func deleteSnake() {
         if alive == true {
@@ -236,19 +236,19 @@ var playSound = AVAudioPlayer()
     @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         if alive == true {
         if (sender.direction == .right) {
-            if ifHittingSnake(theNumber:snakeHead + gridSize) != true {
+            if ifHittingSnake(theNumber:snakeHead - 1) != true {
                 self.movement = 1
             }
         }
         
         if (sender.direction == .left) {
-            if ifHittingSnake(theNumber:snakeHead + gridSize) != true {
+            if ifHittingSnake(theNumber:snakeHead + 1) != true {
                 movement = 2
             }
         }
         if (sender.direction == .up) {
             if snakeHead - gridSize > 0 {
-                if ifHittingSnake(theNumber:snakeHead + gridSize) != true {
+                if ifHittingSnake(theNumber:snakeHead - gridSize) != true {
                     movement = 3
                 }
             }
