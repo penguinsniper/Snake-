@@ -28,9 +28,17 @@ class ViewController: UIViewController {
   
     
     
+     @IBAction func whenEasyPressed(_ sender: Any) {
+        
+     }
     
+     @IBAction func whenMediumPressed(_ sender: Any) {
+        
+     }
     
-    
+     @IBAction func whenHardPressed(_ sender: Any) {
+        
+     }
 
 }
 
