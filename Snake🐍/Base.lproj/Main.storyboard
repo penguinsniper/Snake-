@@ -95,6 +95,7 @@
                                 </state>
                                 <connections>
                                     <action selector="whenEasyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cil-iH-3t4"/>
+                                    <segue destination="vLe-me-n48" kind="show" id="1vn-QM-z04"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvV-dw-KKi">
@@ -106,6 +107,7 @@
                                 </state>
                                 <connections>
                                     <action selector="whenMediumPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EZX-pY-5Se"/>
+                                    <segue destination="vLe-me-n48" kind="show" id="IYC-sy-Eh8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xj-kH-MT0">
@@ -117,6 +119,7 @@
                                 </state>
                                 <connections>
                                     <action selector="whenHardPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVh-sO-NdJ"/>
+                                    <segue destination="vLe-me-n48" kind="show" id="Mhy-Bm-JcT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -205,10 +208,11 @@
                 <swipeGestureRecognizer direction="down" id="voE-qD-T2A"/>
                 <swipeGestureRecognizer direction="up" id="2Sb-dh-zAa"/>
             </objects>
-            <point key="canvasLocation" x="862.5" y="35.7421875"/>
+            <point key="canvasLocation" x="992" y="35"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cLb-VT-7VE"/>
+        <segue reference="IYC-sy-Eh8"/>
+        <segue reference="mkm-u4-9cW"/>
     </inferredMetricsTieBreakers>
 </document>
