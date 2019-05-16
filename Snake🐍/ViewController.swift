@@ -33,12 +33,16 @@ class ViewController: UIViewController {
      }
     
      @IBAction func whenMediumPressed(_ sender: Any) {
-        
+        difficulty = [2]
      }
     
      @IBAction func whenHardPressed(_ sender: Any) {
-        
+        difficulty = [3]
      }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nvc = segue.destination as! GameViewController
+        nvc.difficulty = difficulty
+    }
 }
 

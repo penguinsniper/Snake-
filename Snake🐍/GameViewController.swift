@@ -29,6 +29,11 @@ var playSound = AVAudioPlayer()
     var movement = 4
     var touchApple = false
     var alive = true
+    var easy = false
+    var medium = false
+    var hard = false
+    
+    var difficulty:[Int] = []
     
     @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
@@ -88,7 +93,13 @@ var playSound = AVAudioPlayer()
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
         
-        
+        if difficulty == [1] {
+            easy = true
+        } else if difficulty == [2] {
+            medium = true
+        } else {
+            hard = true
+        }
         
         highScoreLabel.text = "High Score: \(bestHighScore)"
     }
