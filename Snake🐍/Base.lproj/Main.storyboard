@@ -196,10 +196,10 @@
                 <swipeGestureRecognizer direction="down" id="voE-qD-T2A"/>
                 <swipeGestureRecognizer direction="up" id="2Sb-dh-zAa"/>
             </objects>
-            <point key="canvasLocation" x="862.5" y="35.7421875"/>
+            <point key="canvasLocation" x="992" y="35"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cLb-VT-7VE"/>
+        <segue reference="mkm-u4-9cW"/>
     </inferredMetricsTieBreakers>
 </document>
