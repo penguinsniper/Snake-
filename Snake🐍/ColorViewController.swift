@@ -9,7 +9,7 @@
 import UIKit
 
 class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
+    let userDefaults = UserDefaults.standard
    
 
     @IBOutlet var mainColor: UIPickerView!
@@ -39,62 +39,9 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var secondColorCross:UIColor = UIColor.yellow
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch mainColor.selectedRow(inComponent: 0) {
-            
-        case 0:
-            mainColorCross = UIColor.green
-        case 1:
-            mainColorCross = UIColor.yellow
-        case 2:
-            mainColorCross = UIColor.orange
-        case 3:
-            mainColorCross = UIColor.blue
-        case 4:
-            mainColorCross = UIColor.cyan
-        case 5:
-            mainColorCross = UIColor.magenta
-        case 6:
-            mainColorCross = UIColor.purple
-        case 7:
-            mainColorCross = UIColor.brown
-        case 8:
-            mainColorCross = UIColor.white
-        case 9:
-            mainColorCross = UIColor.black
-            
-        default: break
-            
-        }
-        switch secondColor.selectedRow(inComponent: 0) {
-            
-        case 0:
-            secondColorCross = UIColor.green
-        case 1:
-            secondColorCross = UIColor.yellow
-        case 2:
-            secondColorCross = UIColor.orange
-        case 3:
-            secondColorCross = UIColor.blue
-        case 4:
-            secondColorCross = UIColor.cyan
-        case 5:
-            secondColorCross = UIColor.magenta
-        case 6:
-            secondColorCross = UIColor.purple
-        case 7:
-            secondColorCross = UIColor.brown
-        case 8:
-            secondColorCross = UIColor.white
-        case 9:
-            secondColorCross = UIColor.black
-            
-        default: break
-            
-        }
+        userDefaults.set(mainColor.selectedRow(inComponent: 0), forKey: "mainColor")
+        userDefaults.set(secondColor.selectedRow(inComponent: 0), forKey: "secondColor")
         return pickerViewColors[row]
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
