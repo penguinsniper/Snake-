@@ -24,7 +24,6 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         secondColor.dataSource = self
         pickerViewColors = ["Green", "Yellow", "Orange", "Blue", "Cyan", "Magenta", "Purple",  "Brown", "White", "Gray", "Black"]
         pickerViewColors2 = ["Green", "Yellow", "Orange", "Blue", "Cyan", "Magenta", "Purple", "Gray", "Brown", "White", "Black"]
-        UIColor.brown
         // Do any additional setup after loading the view.
     }
     
