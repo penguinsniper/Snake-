@@ -218,7 +218,7 @@ var playSound = AVAudioPlayer()
         if appleCreate == true {
             spawnApple()
         }
-        
+    
     }
     func deleteSnake() {
         if alive == true {
