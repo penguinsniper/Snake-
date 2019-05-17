@@ -103,7 +103,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <state key="normal" title="Easy">
-                                    <color key="titleColor" name="findHighlightColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="titleColor" red="0.15823334938336842" green="1" blue="0.10631810141938725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="whenEasyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r9h-pH-P0X"/>
