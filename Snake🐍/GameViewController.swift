@@ -29,11 +29,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var movement = 4
     var touchApple = false
     var alive = true
-    var easy = false
-    var medium = false
-    var hard = false
     
-    var difficulty:[Int] = []
+    var difficulty:Int!
     var mainColor:UIColor = UIColor.green
     var secondColor:UIColor = UIColor.yellow
     
@@ -96,13 +93,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
         
-        if difficulty == [1] {
-            easy = true
-        } else if difficulty == [2] {
-            medium = true
-        } else {
-            hard = true
-        }
+        
         
         highScoreLabel.text = "High Score: \(bestHighScore)"
         switch userDefaults.integer(forKey: "mainColor") {
