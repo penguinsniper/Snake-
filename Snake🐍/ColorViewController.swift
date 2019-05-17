@@ -20,17 +20,18 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var pickerViewColors2: [String] = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainPicked = userDefaults.integer(forKey: "mainColor")
+        secondPicked = userDefaults.integer(forKey: "secondColor")
         mainColor.delegate = self
         secondColor.delegate = self
         mainColor.dataSource = self
         secondColor.dataSource = self
         pickerViewColors = ["Green", "Yellow", "Orange", "Blue", "Cyan", "Magenta", "Purple",  "Brown", "White", "Gray", "Black"]
         pickerViewColors2 = ["Green", "Yellow", "Orange", "Blue", "Cyan", "Magenta", "Purple",  "Brown", "White", "Gray", "Black"]
-        // Do any additional setup after loading the view.
-        mainPicked = userDefaults.integer(forKey: "mainColor")
-        secondPicked = userDefaults.integer(forKey: "secondColor")
         mainColor.selectRow(mainPicked, inComponent: 0, animated: true)
         secondColor.selectRow(secondPicked, inComponent: 0, animated: true)
+        //userDefaults.set(mainPicked, forKey: "mainColor")
+        //userDefaults.set(secondPicked, forKey: "secondColor")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -45,9 +46,12 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var secondColorCross:UIColor = UIColor.yellow
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        userDefaults.set(mainColor.selectedRow(inComponent: 0), forKey: "mainColor")
-        userDefaults.set(secondColor.selectedRow(inComponent: 0), forKey: "secondColor")
         return pickerViewColors[row]
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        mainPicked = mainColor.selectedRow(inComponent: 0)
+        secondPicked = secondColor.selectedRow(inComponent: 0)
+        userDefaults.set(mainPicked, forKey: "mainColor")
+        userDefaults.set(secondPicked, forKey: "secondColor")
+    }
 }
