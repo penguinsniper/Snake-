@@ -31,6 +31,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var alive = true
     var mainColor:UIColor = UIColor.green
     var secondColor:UIColor = UIColor.yellow
+    var oldSnakeHead = 0
     
     @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
@@ -165,6 +166,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         createSnake()
         alive = true
         score = 0
+        movement = 4
     }
     
     func create() {
@@ -269,8 +271,11 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                 death()
             } else {
                 gridViews[snakeGoingToGo].backgroundColor = UIColor.green
+                oldSnakeHead = snakeHead
                 snakeHead = snakeGoingToGo
                 snakeArray += [snakeGoingToGo]
+                
+                
             }
             if appleCreate == true {
                 spawnApple()
@@ -298,19 +303,19 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         if alive == true {
         if (sender.direction == .right) {
-            if ifHittingSnake(theNumber:snakeHead - 1) != true {
+            if snakeHead + 1 != oldSnakeHead{
                 self.movement = 1
             }
         }
         
         if (sender.direction == .left) {
-            if ifHittingSnake(theNumber:snakeHead + 1) != true {
+            if snakeHead - 1 != oldSnakeHead {
                 movement = 2
             }
         }
         if (sender.direction == .up) {
             if snakeHead - gridSize > 0 {
-                if ifHittingSnake(theNumber:snakeHead - gridSize) != true {
+                if snakeHead - gridSize != oldSnakeHead {
                     movement = 3
                 }
             }
@@ -318,7 +323,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         
         if (sender.direction == .down) {
             if snakeHead + gridSize < gridSize*gridSize - 1 {
-                if ifHittingSnake(theNumber:snakeHead + gridSize) != true {
+                if snakeHead + gridSize != oldSnakeHead {
                     movement = 4
                 }
             }
