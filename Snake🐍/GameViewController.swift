@@ -29,6 +29,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var movement = 4
     var touchApple = false
     var alive = true
+    
+    var difficulty:Int!
     var mainColor:UIColor = UIColor.green
     var secondColor:UIColor = UIColor.yellow
     var oldSnakeHead = 0
