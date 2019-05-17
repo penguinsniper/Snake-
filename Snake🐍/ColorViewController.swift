@@ -27,7 +27,7 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         pickerViewColors = ["Green", "Yellow", "Orange", "Blue", "Cyan", "Magenta", "Purple",  "Brown", "White", "Gray", "Black"]
         pickerViewColors2 = ["Green", "Yellow", "Orange", "Blue", "Cyan", "Magenta", "Purple",  "Brown", "White", "Gray", "Black"]
         // Do any additional setup after loading the view.
-        mainPicked = userDefaults.integer(forKey: "secondColor")
+        mainPicked = userDefaults.integer(forKey: "mainColor")
         secondPicked = userDefaults.integer(forKey: "secondColor")
         mainColor.selectRow(mainPicked, inComponent: 0, animated: true)
         secondColor.selectRow(secondPicked, inComponent: 0, animated: true)
