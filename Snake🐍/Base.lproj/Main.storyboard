@@ -86,40 +86,40 @@
                                     <segue destination="aHi-la-1dk" kind="show" id="zvw-IB-zSD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isi-uT-X34">
-                                <rect key="frame" x="121" y="786" width="122" height="84"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IM-fQ-nr3">
+                                <rect key="frame" x="315" y="809" width="164" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <state key="normal" title="Easy">
-                                    <color key="titleColor" red="0.0" green="1" blue="0.13327670620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="whenEasyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cil-iH-3t4"/>
-                                    <segue destination="vLe-me-n48" kind="show" id="1vn-QM-z04"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvV-dw-KKi">
-                                <rect key="frame" x="271" y="786" width="208" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                 <state key="normal" title="Medium">
-                                    <color key="titleColor" red="1" green="0.9455740238" blue="0.15483933559999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
                                 </state>
                                 <connections>
-                                    <action selector="whenMediumPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EZX-pY-5Se"/>
-                                    <segue destination="vLe-me-n48" kind="show" id="IYC-sy-Eh8"/>
+                                    <action selector="whenMediumPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D4s-WX-9Sf"/>
+                                    <segue destination="vLe-me-n48" kind="show" id="R8s-DX-VsA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xj-kH-MT0">
-                                <rect key="frame" x="508" y="786" width="123" height="84"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSO-o1-MUI">
+                                <rect key="frame" x="133" y="809" width="98" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <state key="normal" title="Hard">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <state key="normal" title="Easy">
+                                    <color key="titleColor" name="findHighlightColor" catalog="System" colorSpace="catalog"/>
                                 </state>
                                 <connections>
-                                    <action selector="whenHardPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVh-sO-NdJ"/>
-                                    <segue destination="vLe-me-n48" kind="show" id="Mhy-Bm-JcT"/>
+                                    <action selector="whenEasyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r9h-pH-P0X"/>
+                                    <segue destination="vLe-me-n48" kind="show" id="sRZ-40-te6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOO-ks-Wcd">
+                                <rect key="frame" x="553" y="809" width="97" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                <state key="normal" title="Hard">
+                                    <color key="titleColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <connections>
+                                    <action selector="whenHardPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCX-mp-ogA"/>
+                                    <segue destination="vLe-me-n48" kind="show" id="qBL-Wa-Bib"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -212,7 +212,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IYC-sy-Eh8"/>
-        <segue reference="mkm-u4-9cW"/>
+        <segue reference="R8s-DX-VsA"/>
+        <segue reference="cLb-VT-7VE"/>
     </inferredMetricsTieBreakers>
 </document>
