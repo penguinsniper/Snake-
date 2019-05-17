@@ -33,11 +33,11 @@ class ViewController: UIViewController {
      }
     
      @IBAction func whenMediumPressed(_ sender: Any) {
-        
+        //time interval = 0.1
      }
     
      @IBAction func whenHardPressed(_ sender: Any) {
-        
+        //time interval = 0.09
      }
 
 }
