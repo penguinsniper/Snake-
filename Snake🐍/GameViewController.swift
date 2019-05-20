@@ -142,14 +142,12 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         case 5:
             secondColor = UIColor.magenta
         case 6:
-            secondColor = UIColor.purple
-        case 7:
             secondColor = UIColor.brown
-        case 8:
+        case 7:
             secondColor = UIColor.white
-        case 9:
+        case 8:
             secondColor = UIColor.gray
-        case 10:
+        case 9:
             secondColor = UIColor.black
         default:
             secondColor = UIColor.yellow
@@ -208,16 +206,22 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     func spawnApple() {
-        var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
+        var appleHit = false
+        var pAppleHit = false
+        while appleHit == false {
+            var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         if ifHittingSnake(theNumber: appleView) == false && gridViews[appleView].backgroundColor != UIColor.darkGray{
             gridViews[appleView].backgroundColor = UIColor.red
+            appleHit = true
         }
-        //func spawnPoisonApple(){
+        }
+        while pAppleHit == false {
             var pAppleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
-            if ifHittingSnake(theNumber: pAppleView) == false {
+            if ifHittingSnake(theNumber: pAppleView) == false && gridViews[pAppleView].backgroundColor != UIColor.darkGray && gridViews[pAppleView].backgroundColor != UIColor.red{
                 gridViews[pAppleView].backgroundColor = UIColor.purple
+                pAppleHit = true
             }
-        //}
+        }
         
     }
     
