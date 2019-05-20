@@ -165,6 +165,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         create()
         var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         gridViews[appleView].backgroundColor = UIColor.red
+        var pAppleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
+        gridViews[pAppleView].backgroundColor = UIColor.purple
         createSnake()
         alive = true
         score = 0
@@ -209,9 +211,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             gridViews[appleView].backgroundColor = UIColor.red
         }
         func spawnPoisonApple(){
-            var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
-            if ifHittingSnake(theNumber: appleView) == false {
-                gridViews[appleView].backgroundColor = UIColor.purple
+            var pAppleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
+            if ifHittingSnake(theNumber: pAppleView) == false {
+                gridViews[pAppleView].backgroundColor = UIColor.purple
             }
         }
         
