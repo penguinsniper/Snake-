@@ -210,6 +210,12 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         if ifHittingSnake(theNumber: appleView) == false && gridViews[appleView].backgroundColor != UIColor.darkGray{
             gridViews[appleView].backgroundColor = UIColor.red
         }
+        func spawnPoisonApple(){
+            var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
+            if ifHittingSnake(theNumber: appleView) == false {
+                gridViews[appleView].backgroundColor = UIColor.purple
+            }
+        }
         
     }
     

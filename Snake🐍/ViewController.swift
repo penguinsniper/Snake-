@@ -13,8 +13,7 @@ import CoreData
 
 class ViewController: UIViewController {
     var highScore:Int = 0
-    var difficulty:Int!
-
+    
     @IBOutlet var menuHighScore: UILabel!
     
     override func viewDidLoad()
@@ -28,22 +27,6 @@ class ViewController: UIViewController {
   
     
     
-     @IBAction func whenEasyPressed(_ sender: Any) {
-        difficulty = 1
-     }
-    
-     @IBAction func whenMediumPressed(_ sender: Any) {
-        difficulty = 2
-     }
-    
-     @IBAction func whenHardPressed(_ sender: Any) {
-        difficulty = 3
-     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nvc = segue.destination as! GameViewController
-        nvc.difficulty = difficulty
-        print(difficulty)
-    }
 }
 
