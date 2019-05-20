@@ -89,7 +89,6 @@
                                     <color key="titleColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
                                 </state>
                                 <connections>
-                                    <action selector="whenMediumPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D4s-WX-9Sf"/>
                                     <segue destination="vLe-me-n48" kind="show" id="R8s-DX-VsA"/>
                                 </connections>
                             </button>
