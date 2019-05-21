@@ -29,6 +29,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var movement = 4
     var touchApple = false
     var alive = true
+    var fastSpeed = false
+    var poisonApples = false
+    var walls = false
     
     var difficulty:Int!
     var mainColor:UIColor = UIColor.green

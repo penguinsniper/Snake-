@@ -19,7 +19,9 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        userDefaults.set(fastSpeed, forKey: "fastSpeed")
+        userDefaults.set(poisonApples, forKey: "poisonApples")
+        userDefaults.set(walls, forKey: "walls")
     }
    
     @IBAction func whenFastSpeedPressed(_ sender: Any) {
