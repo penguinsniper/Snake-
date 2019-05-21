@@ -57,13 +57,117 @@
                     <view key="view" contentMode="scaleToFill" id="TzH-eo-rXw">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Don't" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adY-z2-UAw">
+                                <rect key="frame" x="136" y="139" width="502" height="150"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="125"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="File_000" translatesAutoresizingMaskIntoConstraints="NO" id="4Yj-kO-ULW">
+                                <rect key="frame" x="0.0" y="434" width="748" height="358"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="748" id="N4g-x3-8dG"/>
+                                    <constraint firstAttribute="height" constant="358" id="odR-PN-rMi"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypV-Gk-naL">
+                                <rect key="frame" x="124" y="30" width="526" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="526" id="TTk-3N-vKm"/>
+                                    <constraint firstAttribute="height" constant="101" id="ZZD-JH-A8v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="74"/>
+                                <state key="normal" title="To Actual Tutorial">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="63X-uL-CYU" kind="show" id="5D0-by-PNl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-cx-Unz">
+                                <rect key="frame" x="298" y="851" width="178" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="178" id="77Y-UO-1pl"/>
+                                    <constraint firstAttribute="width" constant="178" id="KeR-tj-l08"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="101" id="ZTL-jH-izQ"/>
+                                    <constraint firstAttribute="height" constant="101" id="saG-VM-IOf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="74"/>
+                                <state key="normal" title="Menu">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="d02-fc-tFY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4Yj-kO-ULW" firstAttribute="top" secondItem="TzH-eo-rXw" secondAttribute="top" constant="434" id="Ahf-hL-Sak"/>
+                            <constraint firstItem="M1f-cx-Unz" firstAttribute="centerX" secondItem="adY-z2-UAw" secondAttribute="centerX" id="B5n-WP-CV9"/>
+                            <constraint firstItem="M1f-cx-Unz" firstAttribute="leading" secondItem="1QE-Pj-aN9" secondAttribute="leading" constant="298" id="MCC-ew-dDn"/>
+                            <constraint firstItem="adY-z2-UAw" firstAttribute="top" secondItem="ypV-Gk-naL" secondAttribute="bottom" constant="8" symbolic="YES" id="bkn-CE-8KI"/>
+                            <constraint firstItem="4Yj-kO-ULW" firstAttribute="leading" secondItem="TzH-eo-rXw" secondAttribute="leading" id="dLL-Wr-q0m"/>
+                            <constraint firstItem="adY-z2-UAw" firstAttribute="top" secondItem="1QE-Pj-aN9" secondAttribute="top" constant="119" id="ifJ-Qz-qA2"/>
+                            <constraint firstItem="M1f-cx-Unz" firstAttribute="top" secondItem="4Yj-kO-ULW" secondAttribute="bottom" constant="59" id="mgS-Wo-ZPK"/>
+                            <constraint firstItem="ypV-Gk-naL" firstAttribute="centerX" secondItem="adY-z2-UAw" secondAttribute="centerX" id="yUR-iC-l5R"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1QE-Pj-aN9"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLo-by-ssQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1008" y="-589"/>
+            <point key="canvasLocation" x="1007.8125" y="-589.453125"/>
+        </scene>
+        <!--Real Tutorial View Controller-->
+        <scene sceneID="OSx-W8-TJq">
+            <objects>
+                <viewController id="63X-uL-CYU" customClass="RealTutorialViewController" customModule="Snake_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q1O-kf-mLx">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ner-kO-133">
+                                <rect key="frame" x="297" y="836" width="178" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="74"/>
+                                <state key="normal" title="Menu">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="f1E-AX-zoc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The red thing is an apple, hit them by swiping left, right, up down," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blY-m6-JhR">
+                                <rect key="frame" x="151" y="204" width="559" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vta-t3-0fZ">
+                                <rect key="frame" x="151" y="262" width="48" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The green thing is your snake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7U-ye-LDQ">
+                                <rect key="frame" x="0.0" y="148" width="254" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Xdt-QG-KXo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hMY-Dz-WUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1633" y="-593"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -349,9 +453,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="File_000" width="128" height="97"/>
         <image name="playImage" width="1500" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="733-eW-TCv"/>
+        <segue reference="f1E-AX-zoc"/>
     </inferredMetricsTieBreakers>
 </document>
