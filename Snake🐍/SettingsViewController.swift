@@ -10,11 +10,17 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet var fastSpeedSwitch: UISwitch!
+    @IBOutlet var poisonAppleSwitch: UISwitch!
+    @IBOutlet var wallsSwitch: UISwitch!
+    @IBOutlet var biggerGridSwitch: UISwitch!
+    
     var userDefaults = UserDefaults.standard
     
     var fastSpeed = false
     var poisonApples = false
     var walls = false
+    var biggerGrid = false
     
     
     override func viewDidLoad() {
@@ -34,6 +40,11 @@ class SettingsViewController: UIViewController {
     
     @IBAction func whenWallsPressed(_ sender: Any) {
         walls = true
+        userDefaults.set(walls, forKey: "walls")
+    }
+    
+    @IBAction func whenBiggerGriddPressed(_ sender: Any) {
+        biggerGrid = true
         userDefaults.set(walls, forKey: "walls")
     }
 }
