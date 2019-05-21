@@ -50,6 +50,21 @@
             </objects>
             <point key="canvasLocation" x="210.9375" y="-739.453125"/>
         </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="Pyq-c1-BbN">
+            <objects>
+                <viewController id="twu-ZE-sAO" customClass="tutorialViewController" customModule="Snake_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TzH-eo-rXw">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1QE-Pj-aN9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLo-by-ssQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008" y="-589"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
