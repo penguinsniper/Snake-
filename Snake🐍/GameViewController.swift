@@ -165,8 +165,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     func addWall() {
         var wallHit = false
-        var wallView:Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         while wallHit == false {
+        var wallView:Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         if ifHittingSnake(theNumber: wallView) == false && gridViews[wallView].backgroundColor != UIColor.darkGray && gridViews[wallView].backgroundColor != UIColor.red{
             gridViews[wallView].backgroundColor = UIColor.darkGray
             wallHit = true
