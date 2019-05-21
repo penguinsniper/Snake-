@@ -157,9 +157,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                         addWall()
                     }
                     spawnApple()
-                    if walls == true {
-                        addWall()
-                    }
                 }
             }
             for timeWentThrogh in 1...snakeArray.count {
