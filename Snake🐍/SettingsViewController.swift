@@ -25,28 +25,33 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userDefaults.set(fastSpeed, forKey: "fastSpeed")
-        userDefaults.set(poisonApples, forKey: "poisonApples")
-        userDefaults.set(walls, forKey: "walls")
+        fastSpeed = userDefaults.bool(forKey: "fastSpeed")
+        poisonApples = userDefaults.bool(forKey: "poisonApples")
+        walls = userDefaults.bool(forKey: "walls")
+        biggerGrid = userDefaults.bool(forKey: "biggerGrid")
+        fastSpeedSwitch.isOn = fastSpeed
+        poisonAppleSwitch.isOn = poisonApples
+        wallsSwitch.isOn = walls
+        biggerGridSwitch.isOn = biggerGrid
     }
    
     @IBAction func whenFastSpeedPressed(_ sender: Any) {
-        fastSpeed = true
+        fastSpeed = fastSpeedSwitch.isOn
         userDefaults.set(fastSpeed, forKey: "fastSpeed")
     }
     
     @IBAction func whenPoisonApplesPressed(_ sender: Any) {
-        poisonApples = true
+        poisonApples = poisonAppleSwitch.isOn
         userDefaults.set(poisonApples, forKey: "poisonApples")
     }
     
     @IBAction func whenWallsPressed(_ sender: Any) {
-        walls = true
+        walls = wallsSwitch.isOn
         userDefaults.set(walls, forKey: "walls")
     }
     
     @IBAction func whenBiggerGriddPressed(_ sender: Any) {
-        biggerGrid = true
-        userDefaults.set(walls, forKey: "walls")
+        biggerGrid = biggerGridSwitch.isOn
+        userDefaults.set(biggerGrid, forKey: "biggerGrid")
     }
 }
