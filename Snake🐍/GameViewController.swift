@@ -29,6 +29,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var movement = 4
     var touchApple = false
     var alive = true
+    var fastSpeed = false
+    var poisonApples = false
+    var walls = false
     
     var difficulty:Int!
     var mainColor:UIColor = UIColor.green
@@ -51,31 +54,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var time = Timer()
     var timerTwo = Timer()
     
-    func startTicks(){
-        time = Timer.scheduledTimer(timeInterval: 0.20, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
-    }
-    @objc func tick(){
-        if alive == true {
-            moveSnake()
-            if touchApple == false && snakeArray.count > 3 {
-                deleteSnake()
-            } else {
-                if touchApple == true {
-                    touchApple = false
-                    addWall()
-                    spawnApple()
-                }
-            }
-            for timeWentThrogh in 1...snakeArray.count {
-                let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
-                if timeWentThrogh % 2 == 0 {
-                    gridViews[num].backgroundColor = secondColor
-                } else {
-                    gridViews[num].backgroundColor = mainColor
-                }
-            }
-        }
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +74,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
         
-        
+        fastSpeed = userDefaults.bool(forKey: "fastSpeed")
+        poisonApples = userDefaults.bool(forKey: "fastSpeed")
         
         highScoreLabel.text = "High Score: \(bestHighScore)"
         switch userDefaults.integer(forKey: "mainColor") {
@@ -153,6 +133,33 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
         startGame()
         startTicks()
+    }
+    
+    func startTicks(){
+        time = Timer.scheduledTimer(timeInterval: 0.20, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
+    }
+    @objc func tick(){
+        if alive == true {
+            moveSnake()
+            if touchApple == false && snakeArray.count > 3 {
+                deleteSnake()
+            } else {
+                if touchApple == true {
+                    touchApple = false
+                    addWall()
+                    spawnApple()
+                    
+                }
+            }
+            for timeWentThrogh in 1...snakeArray.count {
+                let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
+                if timeWentThrogh % 2 == 0 {
+                    gridViews[num].backgroundColor = secondColor
+                } else {
+                    gridViews[num].backgroundColor = mainColor
+                }
+            }
+        }
     }
     func addWall() {
         var wallHit = false
