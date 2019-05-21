@@ -155,9 +155,13 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     func addWall() {
+        var wallHit = false
         var wallView:Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
-        if ifHittingSnake(theNumber: wallView) == false {
+        while wallHit == false {
+        if ifHittingSnake(theNumber: wallView) == false && gridViews[wallView].backgroundColor != UIColor.darkGray && gridViews[wallView].backgroundColor != UIColor.red{
             gridViews[wallView].backgroundColor = UIColor.darkGray
+            wallHit = true
+        }
         }
     }
     func startGame(){
@@ -165,8 +169,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         create()
         var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
         gridViews[appleView].backgroundColor = UIColor.red
-        var pAppleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
-        gridViews[pAppleView].backgroundColor = UIColor.purple
         createSnake()
         alive = true
         score = 0
@@ -210,10 +212,11 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         var pAppleHit = false
         while appleHit == false {
             var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
-        if ifHittingSnake(theNumber: appleView) == false && gridViews[appleView].backgroundColor != UIColor.darkGray{
+        if ifHittingSnake(theNumber: appleView) == false && gridViews[appleView].backgroundColor != UIColor.darkGray && gridViews[appleView].backgroundColor != UIColor.red {
             gridViews[appleView].backgroundColor = UIColor.red
             appleHit = true
         }
+            print("hi1")
         }
         while pAppleHit == false {
             var pAppleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
@@ -254,7 +257,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
         case 3:
             snakeGoingToGo = snakeHead - gridSize
-            if snakeGoingToGo > gridSize * gridSize {
+            if snakeGoingToGo < 0 {
                 validSpace = false
             }
         case 4:
@@ -265,8 +268,14 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         default:
             print("fail")
         }
+            if validSpace == true {
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.darkGray {
                 validSpace = false
+                }
+                if gridViews[snakeGoingToGo].backgroundColor == UIColor.purple {
+                    deleteSnake()
+                    score -= 1
+                }
             }
         if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize - 1 && validSpace == true {
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
@@ -311,7 +320,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     func createSnake() {
         var startPoint = Int((gridSize * gridSize) / 2)
-        gridViews[startPoint].backgroundColor = UIColor.green
+        gridViews[startPoint].backgroundColor = mainColor
         snakeHead = startPoint
         snakeArray = [startPoint]
     }
