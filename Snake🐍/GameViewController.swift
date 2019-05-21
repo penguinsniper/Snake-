@@ -141,7 +141,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     func startTicks(){
         var tickSpeed = 0.2
         if fastSpeed == true {
-            tickSpeed = 0.175
+            tickSpeed = 0.15
         }
         time = Timer.scheduledTimer(timeInterval: 0.20, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
