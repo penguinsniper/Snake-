@@ -75,7 +75,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         view.addGestureRecognizer(downSwipe)
         
         fastSpeed = userDefaults.bool(forKey: "fastSpeed")
-        poisonApples = userDefaults.bool(forKey: "fastSpeed")
+        poisonApples = userDefaults.bool(forKey: "poisonApples")
+        walls = userDefaults.bool(forKey: "walls")
         
         highScoreLabel.text = "High Score: \(bestHighScore)"
         switch userDefaults.integer(forKey: "mainColor") {
@@ -146,9 +147,10 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             } else {
                 if touchApple == true {
                     touchApple = false
-                    addWall()
                     spawnApple()
-                    
+                    if walls == true {
+                        addWall()
+                    }
                 }
             }
             for timeWentThrogh in 1...snakeArray.count {
