@@ -32,6 +32,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var fastSpeed = false
     var poisonApples = false
     var walls = false
+    var biggerGrid = false
     
     var difficulty:Int!
     var mainColor:UIColor = UIColor.green
@@ -75,7 +76,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         view.addGestureRecognizer(downSwipe)
         
         fastSpeed = userDefaults.bool(forKey: "fastSpeed")
-        poisonApples = userDefaults.bool(forKey: "fastSpeed")
+        poisonApples = userDefaults.bool(forKey: "poisonApples")
+        walls = userDefaults.bool(forKey: "walls")
+        biggerGrid = userDefaults.bool(forKey: "biggerGrid")
         
         highScoreLabel.text = "High Score: \(bestHighScore)"
         switch userDefaults.integer(forKey: "mainColor") {
@@ -136,6 +139,10 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func startTicks(){
+        var tickSpeed = 0.2
+        if fastSpeed == true {
+            tickSpeed = 0.175
+        }
         time = Timer.scheduledTimer(timeInterval: 0.20, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
@@ -146,7 +153,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             } else {
                 if touchApple == true {
                     touchApple = false
-                    addWall()
+                    if walls == true {
+                        addWall()
+                    }
                     spawnApple()
                     
                 }
@@ -225,6 +234,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
             print("hi1")
         }
+        if poisonApples == true {
         while pAppleHit == false {
             var pAppleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
             if ifHittingSnake(theNumber: pAppleView) == false && gridViews[pAppleView].backgroundColor != UIColor.darkGray && gridViews[pAppleView].backgroundColor != UIColor.red{
@@ -232,7 +242,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                 pAppleHit = true
             }
         }
-        
+        }
     }
     
     func moveSnake() {
