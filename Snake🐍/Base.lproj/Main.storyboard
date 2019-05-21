@@ -50,6 +50,21 @@
             </objects>
             <point key="canvasLocation" x="210.9375" y="-739.453125"/>
         </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="Pyq-c1-BbN">
+            <objects>
+                <viewController id="twu-ZE-sAO" customClass="tutorialViewController" customModule="Snake_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TzH-eo-rXw">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1QE-Pj-aN9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLo-by-ssQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008" y="-589"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -117,14 +132,30 @@
                                     <segue destination="aHi-la-1dk" kind="show" id="zvw-IB-zSD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPH-iv-DZ3">
+                                <rect key="frame" x="34" y="85" width="132" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="I07-79-hHv"/>
+                                    <constraint firstAttribute="width" constant="132" id="sbL-hE-OE8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="How To Play">
+                                    <color key="titleColor" red="0.0" green="1" blue="0.13327670620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="twu-ZE-sAO" kind="show" id="I8D-rc-LEP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="brZ-oN-RXA" firstAttribute="centerX" secondItem="DuH-pc-NjD" secondAttribute="centerX" id="1lX-pi-i3a"/>
                             <constraint firstItem="4IM-fQ-nr3" firstAttribute="top" secondItem="brZ-oN-RXA" secondAttribute="bottom" constant="313" id="1rY-rs-jtx"/>
+                            <constraint firstItem="DPH-iv-DZ3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="5Tm-N7-PGB"/>
                             <constraint firstItem="04R-Mn-kNK" firstAttribute="centerX" secondItem="DuH-pc-NjD" secondAttribute="centerX" id="Aqr-vR-vmw"/>
                             <constraint firstItem="kb8-9q-05Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="D8v-G3-QWb"/>
                             <constraint firstItem="kb8-9q-05Z" firstAttribute="leading" secondItem="DuH-pc-NjD" secondAttribute="trailing" constant="75" id="FzE-rf-BX3"/>
+                            <constraint firstItem="DPH-iv-DZ3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="65" id="GRz-b9-7uA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kb8-9q-05Z" secondAttribute="trailing" constant="42" id="HQ5-MV-e9Y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4IM-fQ-nr3" secondAttribute="trailing" constant="309" id="NBn-cj-TPL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4IM-fQ-nr3" secondAttribute="bottom" constant="85" id="W3c-he-59T"/>
@@ -297,6 +328,6 @@
         <image name="playImage" width="1500" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mkm-u4-9cW"/>
+        <segue reference="733-eW-TCv"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -82,8 +82,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startGame()
-        startTicks()
         
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
@@ -156,6 +154,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             secondColor = UIColor.yellow
             
         }
+        startGame()
+        startTicks()
     }
     func addWall() {
         var wallHit = false
