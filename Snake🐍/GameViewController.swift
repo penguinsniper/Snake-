@@ -298,6 +298,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                     UserDefaults.standard.set(highScore, forKey: "highScore")
                     let newHighScore = UserDefaults.standard.integer(forKey: "highScore")
                     highScoreLabel.text = "High Score: \(newHighScore)"
+                    highScoreAnimation()
                 }
             
             if ifHittingSnake(theNumber:snakeGoingToGo) == true {
@@ -374,6 +375,18 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
         }
         return false
+    }
+    
+    func highScoreAnimation() {
+        let bounds = highScoreLabel.bounds
+        
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseOut, animations: {
+            self.highScoreLabel.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y - 3, width: bounds.size.width - 60, height: bounds.size.height - 9)
+        }) { (success:Bool) in
+            if success {
+                self.highScoreLabel.bounds = bounds
+            }
+        }
     }
 }
 
