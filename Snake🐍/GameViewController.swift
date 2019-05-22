@@ -73,7 +73,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         if biggerGrid == true {gridSize = 43}
         highScoreLabel.text = "High Score: \(bestHighScore)"
         
-        switch userDefaults.integer(forKey: "secondColor") {
+        switch userDefaults.integer(forKey: "mainColor") {
         case 0:
             secondColor = UIColor.green
         case 1:
@@ -95,7 +95,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         case 9:
             secondColor = UIColor.black
         default:
-            secondColor = UIColor.yellow
+            secondColor = UIColor.green
             
         }
         switch userDefaults.integer(forKey: "secondColor") {
@@ -273,10 +273,12 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         default:
             print("fail")
         }
-        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true {
-            if gridViews[snakeGoingToGo].backgroundColor == UIColor.darkGray {
-                validSpace = false
+            if validSpace == true {
+                if gridViews[snakeGoingToGo].backgroundColor == UIColor.darkGray {
+                    validSpace = false
+                }
             }
+        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true {
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.purple {
                 deleteSnake()
                 score -= 1
