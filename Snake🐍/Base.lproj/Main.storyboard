@@ -101,6 +101,13 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="d02-fc-tFY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(this isn't another joke, please play our game)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKH-fd-6hE">
+                                <rect key="frame" x="277" y="139" width="221" height="12"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -506,6 +513,6 @@
         <image name="playImage" width="1500" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f1E-AX-zoc"/>
+        <segue reference="d02-fc-tFY"/>
     </inferredMetricsTieBreakers>
 </document>
