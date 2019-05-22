@@ -264,27 +264,25 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
         case 3:
             snakeGoingToGo = snakeHead - gridSize
-            if snakeGoingToGo < 0 {
-                validSpace = false
-            }
+            //if snakeGoingToGo < 0 {
+            //    validSpace = false
+           // }
         case 4:
             snakeGoingToGo = snakeHead + gridSize
-            if snakeGoingToGo > gridSize * gridSize {
-                validSpace = false
-            }
+           // if snakeGoingToGo > gridSize * gridSize {
+           //     validSpace = false
+           // }
         default:
             print("fail")
         }
-            if validSpace == true {
+        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true {
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.darkGray {
                 validSpace = false
-                }
-                if gridViews[snakeGoingToGo].backgroundColor == UIColor.purple {
-                    deleteSnake()
-                    score -= 1
-                }
             }
-        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize - 1 && validSpace == true {
+            if gridViews[snakeGoingToGo].backgroundColor == UIColor.purple {
+                deleteSnake()
+                score -= 1
+            }
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
                 score += 1
                 scoreLabel.text = "Score: \(score)"
