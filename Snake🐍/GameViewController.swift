@@ -72,32 +72,30 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         biggerGrid = userDefaults.bool(forKey: "biggerGrid")
         if biggerGrid == true {gridSize = 43}
         highScoreLabel.text = "High Score: \(bestHighScore)"
-        switch userDefaults.integer(forKey: "mainColor") {
-            
+        
+        switch userDefaults.integer(forKey: "secondColor") {
         case 0:
-            mainColor = UIColor.green
+            secondColor = UIColor.green
         case 1:
-            mainColor = UIColor.yellow
+            secondColor = UIColor.yellow
         case 2:
-            mainColor = UIColor.orange
+            secondColor = UIColor.orange
         case 3:
-            mainColor = UIColor.blue
+            secondColor = UIColor.blue
         case 4:
-            mainColor = UIColor.cyan
+            secondColor = UIColor.cyan
         case 5:
-            mainColor = UIColor.magenta
+            secondColor = UIColor.magenta
         case 6:
-            mainColor = UIColor.purple
+            secondColor = UIColor.brown
         case 7:
-            mainColor = UIColor.brown
+            secondColor = UIColor.white
         case 8:
-            mainColor = UIColor.white
+            secondColor = UIColor.gray
         case 9:
-            mainColor = UIColor.gray
-        case 10:
-            mainColor = UIColor.black
+            secondColor = UIColor.black
         default:
-            mainColor = UIColor.green
+            secondColor = UIColor.yellow
             
         }
         switch userDefaults.integer(forKey: "secondColor") {
