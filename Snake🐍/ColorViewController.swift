@@ -34,6 +34,9 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //userDefaults.set(secondPicked, forKey: "secondColor")
     }
     
+    @IBAction func patternSwitch(_ sender: Any) {
+        
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
