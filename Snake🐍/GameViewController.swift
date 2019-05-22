@@ -72,8 +72,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         biggerGrid = userDefaults.bool(forKey: "biggerGrid")
         if biggerGrid == true {gridSize = 43}
         highScoreLabel.text = "High Score: \(bestHighScore)"
+        print(userDefaults.integer(forKey: "mainColor"))
         switch userDefaults.integer(forKey: "mainColor") {
-            
         case 0:
             mainColor = UIColor.green
         case 1:
@@ -87,18 +87,15 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         case 5:
             mainColor = UIColor.magenta
         case 6:
-            mainColor = UIColor.purple
-        case 7:
             mainColor = UIColor.brown
-        case 8:
+        case 7:
             mainColor = UIColor.white
-        case 9:
+        case 8:
             mainColor = UIColor.gray
-        case 10:
+        case 9:
             mainColor = UIColor.black
         default:
             mainColor = UIColor.green
-            
         }
         switch userDefaults.integer(forKey: "secondColor") {
         case 0:
@@ -222,7 +219,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             gridViews[appleView].backgroundColor = UIColor.red
             appleHit = true
         }
-            print("hi1")
         }
         if poisonApples == true {
         while pAppleHit == false {
@@ -275,16 +271,16 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         default:
             print("fail")
         }
-            if validSpace == true {
-            if gridViews[snakeGoingToGo].backgroundColor == UIColor.darkGray {
-                validSpace = false
-                }
-                if gridViews[snakeGoingToGo].backgroundColor == UIColor.purple {
-                    deleteSnake()
-                    score -= 1
+            if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true {
+                if gridViews[snakeGoingToGo].backgroundColor == UIColor.darkGray {
+                    validSpace = false
                 }
             }
-        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize - 1 && validSpace == true {
+        if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true {
+            if gridViews[snakeGoingToGo].backgroundColor == UIColor.purple {
+                deleteSnake()
+                score -= 1
+            }
             if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
                 score += 1
                 scoreLabel.text = "Score: \(score)"
@@ -368,7 +364,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         scoreLabel.text = "Score: \(0)"
     }
     func ifHittingSnake(theNumber: Int) -> Bool{
-        print(snakeArray)
         for timeWentThrogh in 1...snakeArray.count {
             if theNumber == snakeArray[timeWentThrogh - 1] {
                 return true
