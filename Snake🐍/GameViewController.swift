@@ -1,13 +1,4 @@
 
-/////////
-//
-//
-//
-//
-
-//
-
-
 
 
 
@@ -79,7 +70,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         poisonApples = userDefaults.bool(forKey: "poisonApples")
         walls = userDefaults.bool(forKey: "walls")
         biggerGrid = userDefaults.bool(forKey: "biggerGrid")
-        
+        if biggerGrid == true {gridSize = 43}
         highScoreLabel.text = "High Score: \(bestHighScore)"
         switch userDefaults.integer(forKey: "mainColor") {
             
@@ -137,13 +128,13 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         startGame()
         startTicks()
     }
-    
+    var tickSpeed = 0.2
     func startTicks(){
-        var tickSpeed = 0.2
+        tickSpeed = 0.2
         if fastSpeed == true {
-            tickSpeed = 0.15
+            tickSpeed = 0.1
         }
-        time = Timer.scheduledTimer(timeInterval: 0.20, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
+        time = Timer.scheduledTimer(timeInterval: tickSpeed, target: self, selector: (#selector(GameViewController.tick)), userInfo: nil, repeats: true)
     }
     @objc func tick(){
         if alive == true {

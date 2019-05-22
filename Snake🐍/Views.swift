@@ -17,7 +17,9 @@ class Views {
     var viewB:[UIView] = [UIView(frame: CGRect(x: 1, y: 1, width: 1, height: 1))]
     var RP:Int = 0
     var RPT:Int = 0
+    let userDefaults = UserDefaults.standard
     init(gridAmount: Int) {
+        if userDefaults.bool(forKey: "biggerGrid") == true {size = 17}
         viewB = []
         for RP in 1...gridAmount {
             for RPT in 1...gridAmount {
