@@ -14,14 +14,17 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     @IBOutlet var mainColor: UIPickerView!
     @IBOutlet var secondColor: UIPickerView!
+    @IBOutlet var secondPattern: UISwitch!
     var mainPicked = 0
     var secondPicked = 0
+    var secondPatternPicked = false
     var pickerViewColors: [String] = [String]()
     var pickerViewColors2: [String] = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         mainPicked = userDefaults.integer(forKey: "mainColor")
         secondPicked = userDefaults.integer(forKey: "secondColor")
+        secondPatternPicked = userDefaults.bool(forKey: "secondPattern")
         mainColor.delegate = self
         secondColor.delegate = self
         mainColor.dataSource = self
@@ -30,12 +33,12 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         pickerViewColors2 = ["Green", "Yellow", "Orange", "Blue", "Cyan", "Magenta", "Brown", "White", "Gray", "Black"]
         mainColor.selectRow(mainPicked, inComponent: 0, animated: true)
         secondColor.selectRow(secondPicked, inComponent: 0, animated: true)
-        //userDefaults.set(mainPicked, forKey: "mainColor")
-        //userDefaults.set(secondPicked, forKey: "secondColor")
+        secondPattern.isOn = secondPatternPicked
     }
     
     @IBAction func patternSwitch(_ sender: Any) {
-        
+        secondPatternPicked = secondPattern.isOn
+        userDefaults.set(secondPattern, forKey: "secondPattern")
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
