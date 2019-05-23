@@ -58,8 +58,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="patternSwitch:" destination="aHi-la-1dk" eventType="valueChanged" id="7Tf-ye-4ge"/>
-                                    <action selector="whenBiggerGriddPressed:" destination="LAh-OR-aUZ" eventType="valueChanged" id="ZHZ-xA-4eT"/>
-                                    <action selector="whenFastSpeedPressed:" destination="LAh-OR-aUZ" eventType="valueChanged" id="Js7-MC-TBD"/>
                                 </connections>
                             </switch>
                         </subviews>
@@ -433,7 +431,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="whenBiggerGriddPressed:" destination="LAh-OR-aUZ" eventType="valueChanged" id="tr8-nb-JpV"/>
-                                    <action selector="whenFastSpeedPressed:" destination="LAh-OR-aUZ" eventType="valueChanged" id="uHh-rB-zFh"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jhh-m2-3Ju">

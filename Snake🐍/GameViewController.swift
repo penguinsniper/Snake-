@@ -24,6 +24,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var poisonApples = false
     var walls = false
     var biggerGrid = false
+    var secondPattern = false
     
     var difficulty:Int!
     var mainColor:UIColor = UIColor.green
@@ -72,7 +73,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         biggerGrid = userDefaults.bool(forKey: "biggerGrid")
         if biggerGrid == true {gridSize = 43}
         highScoreLabel.text = "High Score: \(bestHighScore)"
-        print(userDefaults.integer(forKey: "mainColor"))
+        secondPattern = userDefaults.bool(forKey: "biggerGrid")
+        
         switch userDefaults.integer(forKey: "mainColor") {
         case 0:
             mainColor = UIColor.green
@@ -147,12 +149,23 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                     spawnApple()
                 }
             }
-            for timeWentThrogh in 1...snakeArray.count {
-                let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
-                if timeWentThrogh % 2 == 0 {
-                    gridViews[num].backgroundColor = secondColor
-                } else {
-                    gridViews[num].backgroundColor = mainColor
+            if secondPattern == true {
+                for timeWentThrogh in 1...snakeArray.count {
+                    let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
+                    if timeWentThrogh % 3 == 1 {
+                        gridViews[num].backgroundColor = mainColor
+                    } else {
+                        gridViews[num].backgroundColor = secondColor
+                    }
+                }
+            } else {
+                for timeWentThrogh in 1...snakeArray.count {
+                    let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
+                    if timeWentThrogh % 2 == 0 {
+                        gridViews[num].backgroundColor = secondColor
+                    } else {
+                        gridViews[num].backgroundColor = mainColor
+                    }
                 }
             }
         }
