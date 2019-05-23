@@ -53,6 +53,15 @@
                                     <action selector="whenFastSpeedPressed:" destination="LAh-OR-aUZ" eventType="valueChanged" id="elN-Dc-QDJ"/>
                                 </connections>
                             </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5hx-MQ-nPh">
+                                <rect key="frame" x="545" y="832" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="patternSwitch:" destination="aHi-la-1dk" eventType="valueChanged" id="7Tf-ye-4ge"/>
+                                    <action selector="whenBiggerGriddPressed:" destination="LAh-OR-aUZ" eventType="valueChanged" id="ZHZ-xA-4eT"/>
+                                    <action selector="whenFastSpeedPressed:" destination="LAh-OR-aUZ" eventType="valueChanged" id="Js7-MC-TBD"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SIO-89-4Wh"/>
@@ -60,6 +69,7 @@
                     <connections>
                         <outlet property="mainColor" destination="SQX-8g-4Ft" id="N0l-uD-IYZ"/>
                         <outlet property="secondColor" destination="jHl-KH-vxr" id="VfZ-EE-AxG"/>
+                        <outlet property="secondPattern" destination="5hx-MQ-nPh" id="oVl-ni-VaE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7G-wg-nB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
