@@ -54,4 +54,9 @@ class SettingsViewController: UIViewController {
         biggerGrid = biggerGridSwitch.isOn
         userDefaults.set(biggerGrid, forKey: "biggerGrid")
     }
+    @IBAction func whenSnakepressed(_ sender: Any) {
+        
+    }
+    
+    
 }
