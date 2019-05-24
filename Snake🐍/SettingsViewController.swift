@@ -55,7 +55,8 @@ class SettingsViewController: UIViewController {
         userDefaults.set(biggerGrid, forKey: "biggerGrid")
     }
     @IBAction func whenSnakepressed(_ sender: Any) {
-        
+            //evilSnake = whenSnakepressed.isOn
+        //userDefaults.set(evilSnake, forKey: "evilSnake")
     }
     
     
