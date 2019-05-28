@@ -37,10 +37,8 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func patternSwitch(_ sender: Any) {
-        print(0)
         secondPatternPicked = secondPattern.isOn
-        print(1)
-        userDefaults.set(secondPattern, forKey: "secondPattern")
+        userDefaults.set(secondPatternPicked, forKey: "secondPattern")
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

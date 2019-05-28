@@ -48,7 +48,6 @@
                                 <rect key="frame" x="545" y="832" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="patternSwitch:" destination="aHi-la-1dk" eventType="valueChanged" id="kuy-0R-sgk"/>
                                     <action selector="whenBiggerGriddPressed:" destination="LAh-OR-aUZ" eventType="valueChanged" id="sNV-TW-L6U"/>
                                     <action selector="whenFastSpeedPressed:" destination="LAh-OR-aUZ" eventType="valueChanged" id="elN-Dc-QDJ"/>
                                 </connections>

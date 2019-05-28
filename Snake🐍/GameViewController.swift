@@ -16,6 +16,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var leftSideViews:[Int] = []
     var fullSnakeInView = false
     var snakeHead = 0
+    var oldSnakeHead = 0
     var snakeArray:[Int] = []
     var movement = 4
     var touchApple = false
@@ -26,10 +27,18 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var biggerGrid = false
     var secondPattern = false
     
+    //AI
+    var AISnakeHead = 0
+    var AIOldSnakeHead = 0
+    var AISnakeArray:[Int] = []
+    var AIMovement = 4
+    var AITouchApple = false
+    var AIAlive = true
+    
+    
     var difficulty:Int!
     var mainColor:UIColor = UIColor.green
     var secondColor:UIColor = UIColor.yellow
-    var oldSnakeHead = 0
     
     @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
@@ -46,8 +55,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var tickCount = 1
     var time = Timer()
     var timerTwo = Timer()
-    
-    
+    var AITimerTwo = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +81,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         biggerGrid = userDefaults.bool(forKey: "biggerGrid")
         if biggerGrid == true {gridSize = 43}
         highScoreLabel.text = "High Score: \(bestHighScore)"
-        secondPattern = userDefaults.bool(forKey: "biggerGrid")
+        secondPattern = userDefaults.bool(forKey: "secondPattern")
         
         switch userDefaults.integer(forKey: "mainColor") {
         case 0:
@@ -122,7 +130,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             secondColor = UIColor.black
         default:
             secondColor = UIColor.yellow
-            
         }
         startGame()
         startTicks()
@@ -168,6 +175,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                     }
                 }
             }
+            AITick()
+            //AI
         }
     }
     func addWall() {
@@ -189,6 +198,11 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         alive = true
         score = 0
         movement = 4
+        
+        //AI
+        AICreateSnake()
+        AIAlive = true
+        AIMovement = 4
     }
     
     func create() {
@@ -220,7 +234,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             numIntoTheSnakeArray -= 1
         } else {
             timerTwo.invalidate()
-            print("why")
         }
     }
     func spawnApple() {
@@ -310,7 +323,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                     highScoreAnimation()
                 }
             
-            if ifHittingSnake(theNumber:snakeGoingToGo) == true {
+            if ifHittingSnake(theNumber:snakeGoingToGo) == true || ifHittingAISnake(theNumber:snakeGoingToGo){
                 alive = false
                 validSpace = false
                 death()
@@ -319,7 +332,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                 oldSnakeHead = snakeHead
                 snakeHead = snakeGoingToGo
                 snakeArray += [snakeGoingToGo]
-                
                 
             }
         } else {
@@ -396,5 +408,350 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
         }
     }
+    
+    func AICreateSnake() {
+        var startPoint = 1 + gridSize
+        gridViews[startPoint].backgroundColor = UIColor.yellow
+        AISnakeHead = startPoint
+        AISnakeArray = [startPoint]
+    }
+    
+    func AITick() {
+        AIMove()
+        if AIAlive == true && alive == true {
+            AIMoveSnake()
+            if AITouchApple == false && AISnakeArray.count > 3 {
+                AIDeleteSnake()
+            } else {
+                if AITouchApple == true {
+                    AITouchApple = false
+                    if walls == true {
+                        addWall()
+                    }
+                    spawnApple()
+                }
+            }
+                for timeWentThrogh in 1...AISnakeArray.count {
+                    let num = AISnakeArray[AISnakeArray.count - 1 - (timeWentThrogh-1)]
+                    if timeWentThrogh % 2 == 0 {
+                        gridViews[num].backgroundColor = UIColor.green
+                    } else {
+                        gridViews[num].backgroundColor = UIColor.yellow
+                    }
+                }
+        }
+    }
+    
+    func AIMoveSnake() {
+        var appleCreate = false
+        if alive == true {
+            var snakeGoingToGo = 0
+            var validSpace = true
+            for timeWentThrogh in 1...snakeArray.count {
+                if snakeGoingToGo == snakeArray[timeWentThrogh - 1] {
+                    alive = false
+                    validSpace = false
+                    death()
+                }
+            }
+            switch AIMovement {
+            case 1:
+                snakeGoingToGo = AISnakeHead + 1
+                for REAPE in 0...gridSize - 1 {
+                    if snakeGoingToGo == (gridSize * REAPE) {
+                        validSpace = false
+                    }
+                }
+            case 2:
+                snakeGoingToGo = AISnakeHead - 1
+                for REAPET in 1...gridSize{
+                    if snakeGoingToGo == (gridSize * REAPET) - 1 {
+                        validSpace = false
+                    }
+                }
+            case 3:
+                snakeGoingToGo = AISnakeHead - gridSize
+                if snakeGoingToGo < 0 {
+                    validSpace = false
+                }
+            case 4:
+                snakeGoingToGo = AISnakeHead + gridSize
+                if snakeGoingToGo > gridSize * gridSize {
+                    validSpace = false
+                }
+            default:
+                print("fail")
+            }
+            if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true {
+                if gridViews[snakeGoingToGo].backgroundColor == UIColor.darkGray {
+                    validSpace = false
+                }
+            }
+            if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true {
+                if gridViews[snakeGoingToGo].backgroundColor == UIColor.purple {
+                    AIDeleteSnake()
+                }
+                if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
+                    appleCreate = true
+                    touchApple = true
+                }
+                
+                if ifHittingAISnake(theNumber:snakeGoingToGo) == true || ifHittingSnake(theNumber:snakeGoingToGo){
+                    AIAlive = false
+                    validSpace = false
+                    AIDeath()
+                } else { gridViews[snakeGoingToGo].backgroundColor = mainColor
+                    AIOldSnakeHead = AISnakeHead
+                    AISnakeHead = snakeGoingToGo
+                    AISnakeArray += [snakeGoingToGo]
+                }
+            } else {
+                AIAlive = false
+                AIDeath()
+            }
+        }
+        
+    }
+    
+    var AINumIntoTheSnakeArray = 0
+    var AIFixForZero = false
+    
+    func AIDeath() {
+        AIFixForZero = false
+        AINumIntoTheSnakeArray = AISnakeArray.count - 1
+        timerTwo = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(GameViewController.AIChageColorAtDeath)), userInfo: nil, repeats: true)
+    }
+    
+    func AIDeleteSnake() {
+        if AIAlive == true && alive == true {
+            gridViews[AISnakeArray[0]].backgroundColor = UIColor.black
+            AISnakeArray.remove(at: 0)
+        }
+    }
+    
+    @objc func AIChageColorAtDeath() {
+        if AIFixForZero == false {
+            let num = AISnakeArray[AINumIntoTheSnakeArray]
+            gridViews[num].backgroundColor = UIColor(red:0.70, green:0.00, blue:0.00, alpha:1.0)
+            if AINumIntoTheSnakeArray == 0{
+                AITimerTwo.invalidate()
+                AIFixForZero = true
+            }
+            AINumIntoTheSnakeArray -= 1
+        } else {
+            AITimerTwo.invalidate()
+        }
+    }
+    var AIDirection = 1
+    func AIMove() {
+        if AIAlive == true {
+        var AISnakeGoingToGo = 0
+        var foundPosible = false
+        var doneSearching = false
+        for REAPET in 0...10{
+            AIDirection = Int(arc4random_uniform(4)) + 1
+        switch AIDirection {
+        case 1:
+            var isPosible = true
+            AISnakeGoingToGo = AISnakeHead + 1
+            
+            if AISnakeGoingToGo == AIOldSnakeHead {
+                isPosible = false
+                print(12)
+            }
+            
+            for REAPE in 0...gridSize - 1 {
+                if AISnakeGoingToGo == (gridSize * REAPE) {
+                    isPosible = false
+                    print(13)
+                }
+            }
+            
+            if AISnakeGoingToGo < gridSize*gridSize {
+            if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
+                isPosible = false
+                print(14)
+            }
+            }
+            
+            if ifHittingAISnake(theNumber:AISnakeGoingToGo) == true {
+                isPosible = false
+                print(15)
+            }
+            
+            if ifHittingSnake(theNumber:AISnakeGoingToGo) == true {
+                isPosible = false
+                print(16)
+            }
+            
+            if isPosible == true {
+                AIMovement = 1
+                print(17)
+            }
+        case 2:
+            var isPosible = true
+            AISnakeGoingToGo = AISnakeHead - 1
+            
+            if AISnakeGoingToGo == AIOldSnakeHead {
+                isPosible = false
+                print(21)
+            }
+            
+            for REAPET in 1...gridSize{
+                if AISnakeGoingToGo == (gridSize * REAPET) - 1 {
+                    isPosible = false
+                    print(22)
+                }
+            }
+            
+            if AISnakeGoingToGo >= 0 {
+            if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
+                isPosible = false
+                print(23)
+            }
+            }
+            
+            if ifHittingAISnake(theNumber:AISnakeGoingToGo) == true {
+                isPosible = false
+                print(24)
+            }
+            
+            if ifHittingSnake(theNumber:AISnakeGoingToGo) == true {
+                isPosible = false
+                print(25)
+            }
+            
+            if isPosible == true {
+                AIMovement = 2
+                print(26)
+            }
+        case 3:
+            var isPosible = true
+            AISnakeGoingToGo = AISnakeHead - gridSize
+            
+            if AISnakeGoingToGo == AIOldSnakeHead {
+                isPosible = false
+                print(31)
+            }
+            
+            if AISnakeGoingToGo < 0 {
+                isPosible = false
+                print(32)
+            }
+            
+            if AISnakeGoingToGo >= 0 {
+            if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
+                isPosible = false
+                print(33)
+            }
+            }
+            
+            if AISnakeGoingToGo == oldSnakeHead {
+                isPosible = false
+                print(34)
+            }
+            
+            if ifHittingAISnake(theNumber:AISnakeGoingToGo) == true {
+                isPosible = false
+                print(35)
+            }
+            
+            if ifHittingSnake(theNumber:AISnakeGoingToGo) == true {
+                isPosible = false
+                print(36)
+            }
+            
+            if isPosible == true {
+                AIMovement = 3
+                print(37)
+            }
+        case 4:
+            var isPosible = true
+            AISnakeGoingToGo = AISnakeHead + gridSize
+            
+            if AISnakeGoingToGo == AIOldSnakeHead {
+                isPosible = false
+                print(41)
+            }
+            
+            if snakeHead + gridSize >= gridSize*gridSize {
+                isPosible = false
+                print(42)
+            }
+            if snakeHead + gridSize == oldSnakeHead {
+                isPosible = false
+                print(43)
+            }
+            
+            if AISnakeGoingToGo < gridSize*gridSize {
+            if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
+                isPosible = false
+                print(44)
+            }
+            }
+            
+            if ifHittingAISnake(theNumber:AISnakeGoingToGo) == true {
+                isPosible = false
+                print(45)
+            }
+            
+            if ifHittingSnake(theNumber:AISnakeGoingToGo) == true {
+                isPosible = false
+                print(46)
+            }
+            
+            if isPosible == true {
+                AIMovement = 4
+                print(47)
+            }
+        default:
+            break
+        }
+        }
+        }
+    }
+    
+    func ifHittingAISnake(theNumber: Int) -> Bool{
+        for timeWentThrogh in 1...AISnakeArray.count {
+            if theNumber == AISnakeArray[timeWentThrogh - 1] {
+                return true
+            }
+        }
+        return false
+    }
+//    if alive == true {
+//    moveSnake()
+//    if touchApple == false && snakeArray.count > 3 {
+//    deleteSnake()
+//    } else {
+//    if touchApple == true {
+//    touchApple = false
+//    if walls == true {
+//    addWall()
+//    }
+//    spawnApple()
+//    }
+//    }
+//    print(secondPattern)
+//    if secondPattern == true {
+//    for timeWentThrogh in 1...snakeArray.count {
+//    let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
+//    if timeWentThrogh % 3 == 1 {
+//    gridViews[num].backgroundColor = mainColor
+//    } else {
+//    gridViews[num].backgroundColor = secondColor
+//    }
+//    }
+//    } else {
+//    for timeWentThrogh in 1...snakeArray.count {
+//    let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
+//    if timeWentThrogh % 2 == 0 {
+//    gridViews[num].backgroundColor = secondColor
+//    } else {
+//    gridViews[num].backgroundColor = mainColor
+//    }
+//    }
+//    }
+//    AITick()
 }
 
