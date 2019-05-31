@@ -332,7 +332,10 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                     UserDefaults.standard.set(highScore, forKey: "highScore")
                     let newHighScore = UserDefaults.standard.integer(forKey: "highScore")
                     highScoreLabel.text = "High Score: \(newHighScore)"
-                    highScoreAnimation()
+                    if bestHighScore > 0 {
+                       highScoreAnimation()
+                    }
+                    
                 }
             
             if ifHittingSnake(theNumber:snakeGoingToGo) == true || ifHittingAISnake(theNumber:snakeGoingToGo){
