@@ -231,11 +231,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The snakes name is Jörg." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs7-U3-DVw">
-                                <rect key="frame" x="0.0" y="312" width="214" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The snakes name is Jörg." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs7-U3-DVw">
+                                <rect key="frame" x="0.0" y="298" width="219" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="214" id="ZlL-qv-Pd7"/>
                                     <constraint firstAttribute="height" constant="24" id="sJ2-xr-EQA"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="u11-fP-Her"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -590,6 +590,6 @@
         <image name="playImage" width="1500" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="733-eW-TCv"/>
+        <segue reference="f1E-AX-zoc"/>
     </inferredMetricsTieBreakers>
 </document>
