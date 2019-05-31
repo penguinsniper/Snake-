@@ -422,7 +422,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func AICreateSnake() {
-        var startPoint = 1 + gridSize
+        var startPoint = 5 + (gridSize * 5)
+        if biggerGrid == true { startPoint = 15 + (gridSize * 15)}
         gridViews[startPoint].backgroundColor = UIColor.yellow
         AISnakeHead = startPoint
         AISnakeArray = [startPoint]
@@ -563,8 +564,10 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         if AIAlive == true {
         var AISnakeGoingToGo = 0
         var doneSearching = false
+            var choseSecondary = true
+            var secondaryMove = 0
             print("\n\nhi")
-        for REAPET in 0...20 {
+        for REAPET in 0...25 {
             AIDirection = Int(arc4random_uniform(4)) + 1
             if Int(arc4random_uniform(4)) != 2 {
                 AIDirection == AIMovement
@@ -585,10 +588,13 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
             
             if AISnakeGoingToGo < gridSize*gridSize {
-            if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
+            if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
                 isPosible = false
             }
-                
+                if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple {
+                    isPosible = false
+                    secondaryMove = 1
+                }
                 if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.red {
                     doneSearching == true
                 }
@@ -611,6 +617,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
             
             if isPosible == true {
+                choseSecondary = false
                 AIMovement = 1
                 print(1)
             }
@@ -633,10 +640,13 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
             
             if AISnakeGoingToGo >= 0 {
-            if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
-                isPosible = false
-            }
-                
+                if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
+                    isPosible = false
+                }
+                if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple {
+                    isPosible = false
+                    secondaryMove = 2
+                }
                 if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.red {
                     doneSearching == true
                 }
@@ -655,6 +665,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
             
             if isPosible == true {
+                choseSecondary = false
                 AIMovement = 2
                 print(2)
             }
@@ -671,10 +682,13 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
             
             if AISnakeGoingToGo >= 0 {
-            if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
-                isPosible = false
-            }
-                
+                if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
+                    isPosible = false
+                }
+                if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple {
+                    isPosible = false
+                    secondaryMove = 3
+                }
                 if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.red {
                     doneSearching == true
                 }
@@ -697,6 +711,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
             
             if isPosible == true {
+                choseSecondary = false
                 AIMovement = 3
                 print(3)
             }
@@ -716,10 +731,13 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
             
             if AISnakeGoingToGo < gridSize*gridSize {
-            if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
-                isPosible = false
-            }
-                
+                if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
+                    isPosible = false
+                }
+                if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple {
+                    isPosible = false
+                    secondaryMove = 4
+                }
                 if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.red {
                     doneSearching == true
                 }
@@ -738,6 +756,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
             
             if isPosible == true {
+                choseSecondary = false
                 AIMovement = 4
                 print(4)
             }
@@ -745,7 +764,11 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             break
         }
         }
+            if choseSecondary == true {
+                AIMovement = secondaryMove
+            }
         }
+        
     }
     
     func ifHittingAISnake(theNumber: Int) -> Bool{
