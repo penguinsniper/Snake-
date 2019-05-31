@@ -544,7 +544,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     @objc func AIChangeColorAtDeath() {
-        if AInakeChangingColor == true {
+        if AISnakeChangingColor == true {
         if AIFixForZero == false {
             let num = AISnakeArray[AINumIntoTheSnakeArray]
             gridViews[num].backgroundColor = UIColor(red:0.70, green:0.00, blue:0.00, alpha:1.0)
