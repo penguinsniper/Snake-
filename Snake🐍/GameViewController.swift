@@ -422,7 +422,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func AICreateSnake() {
-        var startPoint = 1 + gridSize
+        var startPoint = 5 + (gridSize * 5)
+        if biggerGrid == true { startPoint = 15 + (gridSize * 15)}
         gridViews[startPoint].backgroundColor = UIColor.yellow
         AISnakeHead = startPoint
         AISnakeArray = [startPoint]
