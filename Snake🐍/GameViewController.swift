@@ -26,6 +26,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var walls = false
     var biggerGrid = false
     var secondPattern = false
+    var snakeChangingColor = false
     var AISnake = false
     //AI
     var AISnakeHead = 0
@@ -35,6 +36,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var AITouchApple = false
     var AIAlive = true
     
+    var AISnakeChangingColor = false
     
     var difficulty:Int!
     var mainColor:UIColor = UIColor.green
@@ -192,6 +194,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     func startGame(){
+        snakeChangingColor = false
+        AISnakeChangingColor = false
+        
         fullSnakeInView = false
         create()
         var appleView: Int = Int(arc4random_uniform(UInt32(gridSize*gridSize)-1))
@@ -221,6 +226,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var numIntoTheSnakeArray = 0
     var fixForZero = false
     func death() {
+        snakeChangingColor = true
         fixForZero = false
         numIntoTheSnakeArray = snakeArray.count - 1
         timerTwo = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(GameViewController.changeColorAtDeath)), userInfo: nil, repeats: true)
@@ -228,6 +234,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     @objc func changeColorAtDeath() {
+        if snakeChangingColor == true {
         if fixForZero == false {
             let num = snakeArray[numIntoTheSnakeArray]
             gridViews[num].backgroundColor = UIColor(red:0.70, green:0.00, blue:0.00, alpha:1.0)
@@ -238,6 +245,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             numIntoTheSnakeArray -= 1
         } else {
             timerTwo.invalidate()
+        }
         }
     }
     func spawnApple() {
@@ -522,6 +530,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var AIFixForZero = false
     
     func AIDeath() {
+        AISnakeChangingColor = true
         AIFixForZero = false
         AINumIntoTheSnakeArray = AISnakeArray.count - 1
         timerTwo = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(GameViewController.AIChangeColorAtDeath)), userInfo: nil, repeats: true)
@@ -535,6 +544,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     @objc func AIChangeColorAtDeath() {
+        if AInakeChangingColor == true {
         if AIFixForZero == false {
             let num = AISnakeArray[AINumIntoTheSnakeArray]
             gridViews[num].backgroundColor = UIColor(red:0.70, green:0.00, blue:0.00, alpha:1.0)
@@ -545,6 +555,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             AINumIntoTheSnakeArray -= 1
         } else {
             AITimerTwo.invalidate()
+        }
         }
     }
     var AIDirection = 1
@@ -748,39 +759,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         }
         return false
     }
-//    if alive == true {
-//    moveSnake()
-//    if touchApple == false && snakeArray.count > 3 {
-//    deleteSnake()
-//    } else {
-//    if touchApple == true {
-//    touchApple = false
-//    if walls == true {
-//    addWall()
-//    }
-//    spawnApple()
-//    }
-//    }
-//    print(secondPattern)
-//    if secondPattern == true {
-//    for timeWentThrogh in 1...snakeArray.count {
-//    let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
-//    if timeWentThrogh % 3 == 1 {
-//    gridViews[num].backgroundColor = mainColor
-//    } else {
-//    gridViews[num].backgroundColor = secondColor
-//    }
-//    }
-//    } else {
-//    for timeWentThrogh in 1...snakeArray.count {
-//    let num = snakeArray[snakeArray.count - 1 - (timeWentThrogh-1)]
-//    if timeWentThrogh % 2 == 0 {
-//    gridViews[num].backgroundColor = secondColor
-//    } else {
-//    gridViews[num].backgroundColor = mainColor
-//    }
-//    }
-//    }
-//    AITick()
-}
 
+
+}
