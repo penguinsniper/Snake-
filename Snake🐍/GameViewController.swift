@@ -548,8 +548,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         var AISnakeGoingToGo = 0
         var foundPosible = false
         var doneSearching = false
-        for REAPET in 0...10{
-            //AIDirection = Int(arc4random_uniform(4)) + 1
+        for REAPET in 0...10 {
+            AIDirection = Int(arc4random_uniform(4)) + 1
             if Int(arc4random_uniform(2)) == 1 {
                 AIDirection == AIMovement
             }
