@@ -26,7 +26,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var walls = false
     var biggerGrid = false
     var secondPattern = false
-    
+    var AISnake = false
     //AI
     var AISnakeHead = 0
     var AIOldSnakeHead = 0
@@ -177,6 +177,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
             AITick()
             //AI
+            if AISnake == true {
+              
+            }
         }
     }
     func addWall() {
@@ -203,6 +206,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         AICreateSnake()
         AIAlive = true
         AIMovement = 4
+        if AISnake == true {
+        
+        }
     }
     
     func create() {
