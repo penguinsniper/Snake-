@@ -400,8 +400,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     func highScoreAnimation() {
         let bounds = highScoreLabel.bounds
         
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseOut, animations: {
-            self.highScoreLabel.bounds = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width - 60, height: bounds.size.height)
+        UIView.animate(withDuration: 2, delay: 0.3, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseIn, animations: {
+            self.highScoreLabel.bounds = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width - 50, height: bounds.size.height)
         }) { (success:Bool) in
             if success {
                 self.highScoreLabel.bounds = bounds
