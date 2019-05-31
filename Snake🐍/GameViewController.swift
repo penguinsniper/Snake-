@@ -560,41 +560,35 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             
             if AISnakeGoingToGo == AIOldSnakeHead {
                 isPosible = false
-                print(12)
             }
             
             for REAPE in 0...gridSize - 1 {
                 if AISnakeGoingToGo == (gridSize * REAPE) {
                     isPosible = false
-                    print(13)
                 }
             }
             
             if AISnakeGoingToGo < gridSize*gridSize {
             if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
                 isPosible = false
-                print(14)
             }
             }
             
             if ifHittingAISnake(theNumber:AISnakeGoingToGo) == true {
                 isPosible = false
-                print(15)
             }
             
             if ifHittingSnake(theNumber:AISnakeGoingToGo) == true {
                 isPosible = false
-                print(16)
             }
             
             if AISnakeGoingToGo == gridSize {
                 isPosible = false
-                print(29)
             }
             
             if isPosible == true {
                 AIMovement = 1
-                print(17)
+                print(1)
             }
         case 2:
             var isPosible = true
@@ -602,41 +596,35 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             
             if AISnakeGoingToGo == AIOldSnakeHead {
                 isPosible = false
-                print(21)
             }
             
             for REAPET in 1...gridSize{
                 if AISnakeGoingToGo == (gridSize * REAPET) - 1 {
                     isPosible = false
-                    print(22)
                 }
             }
             
             if AISnakeGoingToGo == -1 {
                 isPosible = false
-                print(29)
             }
             
             if AISnakeGoingToGo >= 0 {
             if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
                 isPosible = false
-                print(23)
             }
             }
             
             if ifHittingAISnake(theNumber:AISnakeGoingToGo) == true {
                 isPosible = false
-                print(24)
             }
             
             if ifHittingSnake(theNumber:AISnakeGoingToGo) == true {
                 isPosible = false
-                print(25)
             }
             
             if isPosible == true {
                 AIMovement = 2
-                print(26)
+                print(2)
             }
         case 3:
             var isPosible = true
@@ -644,39 +632,33 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             
             if AISnakeGoingToGo == AIOldSnakeHead {
                 isPosible = false
-                print(31)
             }
             
             if AISnakeGoingToGo < 0 {
                 isPosible = false
-                print(32)
             }
             
             if AISnakeGoingToGo >= 0 {
             if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
                 isPosible = false
-                print(33)
             }
             }
             
             if AISnakeGoingToGo == oldSnakeHead {
                 isPosible = false
-                print(34)
             }
             
             if ifHittingAISnake(theNumber:AISnakeGoingToGo) == true {
                 isPosible = false
-                print(35)
             }
             
             if ifHittingSnake(theNumber:AISnakeGoingToGo) == true {
                 isPosible = false
-                print(36)
             }
             
             if isPosible == true {
                 AIMovement = 3
-                print(37)
+                print(3)
             }
         case 4:
             var isPosible = true
@@ -684,38 +666,32 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             
             if AISnakeGoingToGo == AIOldSnakeHead {
                 isPosible = false
-                print(41)
             }
             
             if snakeHead + gridSize >= gridSize*gridSize {
                 isPosible = false
-                print(42)
             }
             if snakeHead + gridSize == oldSnakeHead {
                 isPosible = false
-                print(43)
             }
             
             if AISnakeGoingToGo < gridSize*gridSize {
             if gridViews[AISnakeGoingToGo].backgroundColor == UIColor.purple || gridViews[AISnakeGoingToGo].backgroundColor == UIColor.gray{
                 isPosible = false
-                print(44)
             }
             }
             
             if ifHittingAISnake(theNumber:AISnakeGoingToGo) == true {
                 isPosible = false
-                print(45)
             }
             
             if ifHittingSnake(theNumber:AISnakeGoingToGo) == true {
                 isPosible = false
-                print(46)
             }
             
             if isPosible == true {
                 AIMovement = 4
-                print(47)
+                print(4)
             }
         default:
             break
