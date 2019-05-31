@@ -504,6 +504,7 @@
                         <viewLayoutGuide key="safeArea" id="HqP-if-zbd"/>
                     </view>
                     <connections>
+                        <outlet property="AISnakeSwitch" destination="6sO-5j-SoD" id="SlD-AW-L5a"/>
                         <outlet property="biggerGridSwitch" destination="Icc-wK-ZpD" id="SME-wd-qQj"/>
                         <outlet property="fastSpeedSwitch" destination="NaN-9j-xaX" id="BJo-KV-PWn"/>
                         <outlet property="poisonAppleSwitch" destination="Pzy-UF-ZM1" id="Uix-ZJ-nID"/>
