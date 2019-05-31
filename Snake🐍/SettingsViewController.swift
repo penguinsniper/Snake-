@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet var poisonAppleSwitch: UISwitch!
     @IBOutlet var wallsSwitch: UISwitch!
     @IBOutlet var biggerGridSwitch: UISwitch!
+    @IBOutlet var AISnakeSwitch: UISwitch!
     
     var userDefaults = UserDefaults.standard
     
@@ -21,7 +22,7 @@ class SettingsViewController: UIViewController {
     var poisonApples = false
     var walls = false
     var biggerGrid = false
-    
+    var AISnake = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,12 @@ class SettingsViewController: UIViewController {
         poisonApples = userDefaults.bool(forKey: "poisonApples")
         walls = userDefaults.bool(forKey: "walls")
         biggerGrid = userDefaults.bool(forKey: "biggerGrid")
+        AISnake = userDefaults.bool(forKey: "AISnake")
         fastSpeedSwitch.isOn = fastSpeed
         poisonAppleSwitch.isOn = poisonApples
         wallsSwitch.isOn = walls
         biggerGridSwitch.isOn = biggerGrid
+        AISnakeSwitch.isOn = AISnake
     }
    
     @IBAction func whenFastSpeedPressed(_ sender: Any) {
@@ -55,8 +58,8 @@ class SettingsViewController: UIViewController {
         userDefaults.set(biggerGrid, forKey: "biggerGrid")
     }
     @IBAction func whenSnakepressed(_ sender: Any) {
-            //aiSnake = whenSnakepressed.isOn
-        //userDefaults.set(aiSnake, forKey: "aiSnake")
+            AISnake = AISnakeSwitch.isOn
+        userDefaults.set(AISnake, forKey: "AISnake")
     }
     
     
