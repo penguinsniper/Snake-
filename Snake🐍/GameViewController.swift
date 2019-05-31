@@ -549,7 +549,10 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         var foundPosible = false
         var doneSearching = false
         for REAPET in 0...10{
-            AIDirection = Int(arc4random_uniform(4)) + 1
+            //AIDirection = Int(arc4random_uniform(4)) + 1
+            if Int(arc4random_uniform(2)) == 1 {
+                AIDirection == AIMovement
+            }
         switch AIDirection {
         case 1:
             var isPosible = true
@@ -584,6 +587,11 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                 print(16)
             }
             
+            if AISnakeGoingToGo == gridSize {
+                isPosible = false
+                print(29)
+            }
+            
             if isPosible == true {
                 AIMovement = 1
                 print(17)
@@ -602,6 +610,11 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                     isPosible = false
                     print(22)
                 }
+            }
+            
+            if AISnakeGoingToGo == -1 {
+                isPosible = false
+                print(29)
             }
             
             if AISnakeGoingToGo >= 0 {
