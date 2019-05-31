@@ -738,7 +738,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func ifHittingAISnake(theNumber: Int) -> Bool{
-        if AISnake == false {
+        if AISnake == true {
         for timeWentThrogh in 1...AISnakeArray.count {
             if theNumber == AISnakeArray[timeWentThrogh - 1] {
                 return true
