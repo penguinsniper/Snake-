@@ -486,15 +486,16 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                 if gridViews[snakeGoingToGo].backgroundColor == UIColor.darkGray {
                     validSpace = false
                 }
-            }
-            if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true {
                 if gridViews[snakeGoingToGo].backgroundColor == UIColor.purple {
                     AIDeleteSnake()
+                    print("Purple")
                 }
                 if gridViews[snakeGoingToGo].backgroundColor == UIColor.red {
                     appleCreate = true
                     AITouchApple = true
                 }
+            }
+            if snakeGoingToGo >= 0 && snakeGoingToGo < gridSize * gridSize && validSpace == true {
                 
                 if ifHittingAISnake(theNumber:snakeGoingToGo) == true || ifHittingSnake(theNumber:snakeGoingToGo){
                     AIAlive = false
