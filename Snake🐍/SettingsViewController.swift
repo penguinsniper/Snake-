@@ -34,7 +34,7 @@ class SettingsViewController: UIViewController {
         poisonAppleSwitch.isOn = poisonApples
         wallsSwitch.isOn = walls
         biggerGridSwitch.isOn = biggerGrid
-        //AISnake.isOn = AISnake
+      // AISnakeSwitch.isOn = AISnake
     }
    
     @IBAction func whenFastSpeedPressed(_ sender: Any) {
@@ -57,7 +57,7 @@ class SettingsViewController: UIViewController {
         userDefaults.set(biggerGrid, forKey: "biggerGrid")
     }
     @IBAction func whenSnakepressed(_ sender: Any) {
-            //AISnake = whenSnakepressed.isOn
+            //AISnake = AISnakeSwitch.isOn
         //userDefaults.set(AISnake, forKey: "AISnake")
     }
     
