@@ -82,6 +82,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         if biggerGrid == true {gridSize = 43}
         highScoreLabel.text = "High Score: \(bestHighScore)"
         secondPattern = userDefaults.bool(forKey: "secondPattern")
+        AISnake = userDefaults.bool(forKey: "AISnake")
         
         switch userDefaults.integer(forKey: "mainColor") {
         case 0:
@@ -175,10 +176,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                     }
                 }
             }
-            AITick()
-            //AI
             if AISnake == true {
-              
+                AITick()
             }
         }
     }
@@ -202,12 +201,11 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         score = 0
         movement = 4
         
-        //AI
-        AICreateSnake()
-        AIAlive = true
-        AIMovement = 4
+        AIAlive = false
         if AISnake == true {
-        
+            AICreateSnake()
+            AIAlive = true
+            AIMovement = 4
         }
     }
     
@@ -554,7 +552,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         if AIAlive == true {
         var AISnakeGoingToGo = 0
         var doneSearching = false
-            print("\n\n")
+            print("\n\nhi")
         for REAPET in 0...20 {
             AIDirection = Int(arc4random_uniform(4)) + 1
             if Int(arc4random_uniform(4)) != 2 {
@@ -740,10 +738,13 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func ifHittingAISnake(theNumber: Int) -> Bool{
+        if AISnake == false {
         for timeWentThrogh in 1...AISnakeArray.count {
             if theNumber == AISnakeArray[timeWentThrogh - 1] {
                 return true
             }
+        }
+        return false
         }
         return false
     }
